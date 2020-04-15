@@ -135,8 +135,8 @@
 							<!-- Logo
 							============================================= -->
 							<div id="logo">
-								<a href="demo-interior-design.html" class="standard-logo"><img src="public/assets/front-end/images/logo_new1.png" alt="Canvas Logo" style="width: 100px;height: auto;    max-width: none !important;"></a>
-								<a href="demo-interior-design.html" class="retina-logo"><img src="public/assets/front-end/images/logo_new1.png" alt="Canvas Logo" style="    width: 150px;padding-top: 24px;height: auto; max-width: none !important;"></a>
+								<a href="demo-interior-design.html" class="standard-logo"><img src="public/assets/front-end/images/logo_ban.png" alt="Canvas Logo" style="width: 100px;height: auto;    max-width: none !important;"></a>
+								<a href="demo-interior-design.html" class="retina-logo"><img src="public/assets/front-end/images/logo_ban.png" alt="Canvas Logo" style="    width: 150px;padding-top: 24px;height: auto; max-width: none !important;"></a>
 							</div><!-- #logo end -->
 
 						</div>
@@ -153,11 +153,6 @@
 												<div><?= $user['email']; ?></div>
 											</a>
 										</li>
-										<li class="h_menu">
-											<a href="">
-												<div><i class="icon-coins"></i> <?= $user['point']; ?> Coin </div>
-											</a>
-										</li>
 									<?php } ?>
 									<li class="<?php if ($this->uri->segment(1) == "index") {
 													echo 'current';
@@ -165,29 +160,11 @@
 											<div>หน้าแรก</div>
 										</a>
 									</li>
-									<li class="<?php if ($this->uri->segment(1) == "about") {
-													echo 'current';
-												} ?>"><a href="about">
-											<div>เกี่ยวกับเรา</div>
-										</a>
-									</li>
-									<li class="<?php if ($this->uri->segment(1) == "ads") {
-													echo 'current';
-												} ?>"><a href="ads">
-											<div>ลงโฆษณา</div>
-										</a>
-									</li>
-								
-									<li class="<?php if ($this->uri->segment(1) == "credit") {
-													echo 'current';
-												} ?>"><a href="credit">
-											<div>เติมเครดิต</div>
-										</a>
-									</li>
+									
 									<li class="<?php if ($this->uri->segment(1) == "download") {
 													echo 'current';
 												} ?>"><a href="download">
-											<div>ดาวน์โหลดหนังสือพิมพ์</div>
+											<div>โฑสทั้งหมด</div>
 										</a>
 									</li>
 									<li class="<?php if ($this->uri->segment(1) == "contact") {
@@ -198,12 +175,7 @@
 									</li>
 								
 									<?php if (!empty($user)) { ?>
-										<li class="h_menu">
-
-											<a href="#">
-												<div>เติม Coin</div>
-											</a>
-										</li>
+									
 										<li class="h_menu">
 											<a href="logout" style="color:red" onclick="return confirm('Are you sure to logout?');">
 												<div>ออกจากระบบ</div>

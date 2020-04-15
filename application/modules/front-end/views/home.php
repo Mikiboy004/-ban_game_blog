@@ -11,15 +11,15 @@
 			<!-- <div class="clearfix center divcenter" style="max-width: 700px;"> -->
 			<div class="clearfix center divcenter">
 				<div class="emphasis-title">
-					<h1 class="font-secondary" style="color: #123262;font-size: 2.5rem; font-weight: 900; text-shadow: 0 7px 10px rgba(0,0,0,0.07), 0 4px 4px rgba(0,0,0,0.2);margin-bottom: 1.5rem;">ลงประกาศโฆษณาเชิญประชุมผู้ถือหุ้น กรอบละ <span style="color:#FF0000;">45</span> บาท</h1>
-					<p style="font-weight: 300; font-size: 1.75rem; opacity: .7; color: #4A4A4A; text-shadow: 0 -4px 30px rgba(0, 0, 0, .25);margin-top:15px;"><b>ใช้งานง่าย สะดวก รวดเร็ว ประหยัด ดาวน์โหลดหนังสือพิมพ์ได้ในวันถัดไป</b></p>
+					<h1 class="font-secondary" style="color: #123262;font-size: 2.5rem; font-weight: 900; text-shadow: 0 7px 10px rgba(0,0,0,0.07), 0 4px 4px rgba(0,0,0,0.2);margin-bottom: 1.5rem;">คนโกงจะหมดไปถ้าเราช่วยกัน</h1>
+					<p style="font-weight: 300; font-size: 1.75rem; opacity: .7; color: #4A4A4A; text-shadow: 0 -4px 30px rgba(0, 0, 0, .25);margin-top:15px;"><b>ใช้งานง่าย สะดวก รวดเร็ว </b></p>
 				</div>
 				<div class="subscribe-widget" data-loader="button">
 					<div class="widget-subscribe-form-result"></div>
 					<form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="nobottommargin h_main" data-animate="fadeInUp" style="padding:0px;border-radius: 20px 20px 20px 20px;margin:auto;">
 
-						<div class="input-group divcenter travel-date-group">
-							<input type="text" value="" class="form-control tleft default" placeholder="ค้นหาหนังสือพิมพ์จากวันที่" style="border: 0; box-shadow: none; overflow: hidden;margin:auto;border-radius: 20px 20px 20px 20px;">
+						<div class="input-group divcenter ">
+							<input type="text" value="" class="form-control tleft default" placeholder="ค้นหาคนโกงได้ที่นี้!!!" style="border: 0; box-shadow: none; overflow: hidden;margin:auto;border-radius: 20px 20px 20px 20px;">
 							<!-- <input type="email" id="widget-subscribe-form-email" name="widget-subscribe-form-email" class="form-control form-control-lg not-dark required email" placeholder="Enter your Email Address.." style="border: 0; box-shadow: none; overflow: hidden;"> -->
 							<div class="input-group-append">
 								<button href="#" class="button t400" type="submit" style="border-radius: 0px 20px 20px 0px;">ค้นหา</button>
