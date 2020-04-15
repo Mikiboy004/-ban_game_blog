@@ -27,22 +27,22 @@
             </li>  
                 <?php } ?>
 
-                <li class="nav-item <?php if ($this->uri->segment(1) == "Main_order") {
+             <li class="nav-item <?php if ($this->uri->segment(1) == "Main_order") {
                                                 echo 'active';
                                             } ?>">
-                 <a href="Main_order"><i class="feather icon-copy"></i><span data-i18n="Dashboard">Order</span></a>
+                 <a href="Main_order"><i class="feather icon-copy"></i><span data-i18n="Dashboard">โพสทั้งหมด</span></a>
             </li>
 
             <li class="nav-item <?php if ($this->uri->segment(1) == "List-Post") {
                                                 echo 'active';
                                             } ?>">
-                 <a href="List-Post"><i class="feather icon-book"></i><span data-i18n="List-Post">หลักในการลงประกาศหนังสือพิมพ์</span></a>
-            </li>
+                 <a href="List-Post"><i class="feather icon-book"></i><span data-i18n="List-Post">สไลค์</span></a>
+            </li>  
             <li class="nav-item <?php if ($this->uri->segment(1) == "List_Contact_us") {
                                                 echo 'active';
                                             } ?>">
-                 <a href="List_Contact_us"><i class="feather icon-book"></i><span data-i18n="List_Contact_us">คำถามที่พบบ่อย</span></a>
-            </li>
+                 <a href="List_Contact_us"><i class="feather icon-book"></i><span data-i18n="List_Contact_us">แบนเนอร์</span></a>
+            </li> 
 
                 <li class="nav-item <?php if ($this->uri->segment(1) == "List-Contact") {
                                                 echo 'active';
