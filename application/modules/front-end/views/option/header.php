@@ -13,6 +13,7 @@
 	<link rel="stylesheet" href="public/assets/front-end/style.css" type="text/css" />
 	<link rel="stylesheet" href="public/assets/front-end/css/dark.css" type="text/css" />
 	<link href="https://fonts.googleapis.com/css?family=Spartan&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Kanit&display=swap" rel="stylesheet">
 
 	<!-- Home Demo Specific Stylesheet -->
 	<link rel="stylesheet" href="public/assets/front-end/demos/interior-design/interior-design.css" type="text/css" />
@@ -27,7 +28,8 @@
 
 	<!-- Reader's Blog Demo Specific Fonts -->
 	<link rel="stylesheet" href="public/assets/front-end/demos/interior-design/css/fonts.css" type="text/css" />
-
+	<!-- Bootstrap File Upload CSS -->
+	<link rel="stylesheet" href="public/assets/front-end/css/components/bs-filestyle.css" type="text/css" />
 	<link rel="stylesheet" href="public/assets/front-end/css/responsive.css" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link rel="stylesheet" href="public/assets/front-end/css/colors.php?color=1c85e8" type="text/css" />
@@ -39,15 +41,14 @@
 	<title>Interior Design Studio | Canvas</title>
 
 </head>
+<style>
+	img {
+		width: 100%;
+	}
+</style>
 
 <body class="stretched side-push-panel">
-	<style>
-		@media (min-width:992px) {
-			.h_menu {
-				display: none;
-			}
-		}
-	</style>
+
 	<?php $user = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array(); ?>
 
 	<div id="side-panel">
@@ -134,8 +135,8 @@
 							<!-- Logo
 							============================================= -->
 							<div id="logo">
-								<a href="demo-interior-design.html" class="standard-logo"><img src="public/assets/front-end/images/logo_new.png" alt="Canvas Logo"></a>
-								<a href="demo-interior-design.html" class="retina-logo"><img src="public/assets/front-end/images/logo_new.png" alt="Canvas Logo"></a>
+								<a href="demo-interior-design.html" class="standard-logo"><img src="public/assets/front-end/images/logo_new1.png" alt="Canvas Logo" style="width: 100px;height: auto;    max-width: none !important;"></a>
+								<a href="demo-interior-design.html" class="retina-logo"><img src="public/assets/front-end/images/logo_new1.png" alt="Canvas Logo" style="    width: 150px;padding-top: 24px;height: auto; max-width: none !important;"></a>
 							</div><!-- #logo end -->
 
 						</div>
@@ -176,12 +177,7 @@
 											<div>ลงโฆษณา</div>
 										</a>
 									</li>
-									<li class="<?php if ($this->uri->segment(1) == "payment") {
-													echo 'current';
-												} ?>"><a href="payment">
-											<div>ชำระเงิน</div>
-										</a>
-									</li>
+								
 									<li class="<?php if ($this->uri->segment(1) == "credit") {
 													echo 'current';
 												} ?>"><a href="credit">
@@ -200,6 +196,7 @@
 											<div>ติดต่อเรา</div>
 										</a>
 									</li>
+								
 									<?php if (!empty($user)) { ?>
 										<li class="h_menu">
 
@@ -222,18 +219,25 @@
 						<div class="col-lg-3 d-none d-lg-inline-flex d-xl-inline-flex justify-content-end nomargin">
 							<?php if (empty($user)) { ?>
 								<div id="register_side">
-									<a href="register" class="d-none d-lg-block">ลงทะเบียน </i></a>
+									<a href="register" class="d-none d-lg-block r_and_l"><span> ลงทะเบียน</span></a>
 								</div>
 								<!-- Top Search
 							============================================= -->
 								<div id="side-panel-trigger" class="side-panel-trigger">
 									<a href="#" class="d-block d-lg-none"><i class="icon-line-lock"></i></a>
-									<a href="#" class="d-none d-lg-block">เข้าสู่ระบบ</i></a>
+									<a href="#" class="d-none d-lg-block r_and_l"><span>เข้าสู่ระบบ</span></a>
 								</div><!-- #top-search end -->
 
 							<?php } else { ?>
 								<div id="register_side">
-									<a href="#"><i class="icon-coins"></i> <?= $user['point']; ?> Coin |</a>
+									<?php 
+										$omeise = $this->db->get_where('tbl_omise',['id_user' => $user['id_user']])->result_array(); 
+										$point = 0;
+										foreach ($omeise as $omeise_point) {
+											$point += $omeise_point['count'];
+										}
+									?>
+									<a href="#"><i class="icon-coins"></i> <?= $point; ?> Coin |</a>
 								</div>
 								<div id="register_side">
 									<a href="logout" class="d-none d-lg-block" style="color:red" onclick="return confirm('Are you sure to logout?');"> ออกจากระบบ</a>
