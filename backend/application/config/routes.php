@@ -11,17 +11,17 @@ $route['LoginMe']                       = 'Login_controller/loginMe';
 $route['Logout']                        = 'Login_controller/logout';
 $route['List-admin']                    = 'Admin_controller/list_admin';
 $route['List-Contact']                  = 'Contact_controller/list_Contact';
-$route['List-Post']                     = 'Post_controller/list_post';
-$route['post_add_com']                  = 'Post_controller/post_add_com';
-$route['post_edit_com']                  = 'Post_controller/post_edit_com';
-$route['delete_post']                  = 'Post_controller/delete_post';
+$route['List-slider']                     = 'Slider_controller/list_slider';
+$route['slider_add_com']                  = 'Slider_controller/slider_add_com';
+$route['silder_edit_com']                  = 'Slider_controller/silder_edit_com';
+$route['delete_slider']                  = 'Slider_controller/delete_slider';
 $route['List-Order']                  = 'Order_controller/list_order';
 $route['List_order_pdf']                  = 'Order_controller/list_order_pdf';
 $route['Main_order']                  = 'Order_controller/main_order';
-$route['pdf_add_com']                  = 'Order_controller/pdf_add_com';
-$route['pdf_edit_com']                  = 'Order_controller/pdf_edit_com';
-$route['delete_pdf']                     = 'Order_controller/delete_pdf';
-$route['List_Contact_us']                  = 'Contact_controller/list_Contact_us';
-$route['contact_us_com']                  = 'Contact_controller/contact_us_com';
-$route['contact_us_edit']                  = 'Contact_controller/contact_us_edit';
-$route['delete_contact_us']                  = 'Contact_controller/delete_contact_us';
+$route['list_banner']                     = 'Banner_controller/list_banner';
+$route['banner_add_com']                     = 'Banner_controller/banner_add_com';
+$route['banner_edit_com']                     = 'Banner_controller/banner_edit_com';
+$route['delete_banner']                     = 'Banner_controller/delete_banner';
+
+
+

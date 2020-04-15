@@ -33,15 +33,15 @@
                  <a href="Main_order"><i class="feather icon-copy"></i><span data-i18n="Dashboard">โพสทั้งหมด</span></a>
             </li>
 
-            <li class="nav-item <?php if ($this->uri->segment(1) == "List-Post") {
+            <li class="nav-item <?php if ($this->uri->segment(1) == "List-slider") {
                                                 echo 'active';
                                             } ?>">
-                 <a href="List-Post"><i class="feather icon-book"></i><span data-i18n="List-Post">สไลค์</span></a>
+                 <a href="List-slider"><i class="feather icon-book"></i><span data-i18n="List-slider">สไลค์</span></a>
             </li>  
-            <li class="nav-item <?php if ($this->uri->segment(1) == "List_Contact_us") {
+            <li class="nav-item <?php if ($this->uri->segment(1) == "list_banner") {
                                                 echo 'active';
                                             } ?>">
-                 <a href="List_Contact_us"><i class="feather icon-book"></i><span data-i18n="List_Contact_us">แบนเนอร์</span></a>
+                 <a href="list_banner"><i class="feather icon-book"></i><span data-i18n="list_banner">แบนเนอร์</span></a>
             </li> 
 
                 <li class="nav-item <?php if ($this->uri->segment(1) == "List-Contact") {

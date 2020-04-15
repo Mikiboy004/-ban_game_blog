@@ -71,47 +71,30 @@
     function confirmalertdelete(data) {
 
         swal({
-            title: "Are you sure delete?",
-            text: "Are you sure you want to delete  ?",
+            title: "Are you sure delete slider?",
+            text: "Are you sure you want to delete slider ?",
             icon: "warning",
             buttons: true,
             dangerMode: true,
         }).then(function(isConfirm) {
             if (isConfirm) {
-                window.location = 'delete_post?id=' + data;
+                window.location = 'delete_slider?id=' + data;
             }
         })
     }
 </script>
 <script>
-    function confirmalertdelete_pdf(data1) {
+    function confirmalertdelete_banner(data1) {
 
         swal({
-            title: "Are you sure delete?",
-            text: "Are you sure you want to delete  ?",
+            title: "Are you sure delete? banner",
+            text: "Are you sure you want to delete   banner?",
             icon: "warning",
             buttons: true,
             dangerMode: true,
         }).then(function(isConfirm) {
             if (isConfirm) {
-                window.location = 'delete_pdf?id=' + data1;
-            }
-        })
-    }
-</script>
-
-<script>
-    function confirmalertdelete_contact_us(data2) {
-
-        swal({
-            title: "Are you sure delete คำถามที่พบบ่อย?",
-            text: "Are you sure you want to delete คำถามที่พบบ่อย  ?",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-        }).then(function(isConfirm) {
-            if (isConfirm) {
-                window.location = 'delete_contact_us?id=' + data2;
+                window.location = 'delete_banner?id=' + data1;
             }
         })
     }
