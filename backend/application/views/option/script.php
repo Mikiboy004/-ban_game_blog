@@ -99,5 +99,37 @@
         })
     }
 </script>
+<script>
+    function confirmalertdelete_Post(data2) {
+
+        swal({
+            title: "แน่ใจใช่หรือไม่ที่จะลบโพสที่ไม่เหมาสม",
+            text: "Are you sure you want to delete Post?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then(function(isConfirm) {
+            if (isConfirm) {
+                window.location = 'delete_Post?id=' + data2;
+            }
+        })
+    }
+</script>
+<script>
+    function confirmalertdelete_comment(data3) {
+
+        swal({
+            title: "แน่ใจใช่หรือไม่ที่จะลบโพสที่ไม่เหมาสม",
+            text: "Are you sure you want to delete Post?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then(function(isConfirm) {
+            if (isConfirm) {
+                window.location = 'delete_comment?id=' + data3;
+            }
+        })
+    }
+</script>
 
 

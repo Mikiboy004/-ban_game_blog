@@ -27,10 +27,10 @@
             </li>  
                 <?php } ?>
 
-             <li class="nav-item <?php if ($this->uri->segment(1) == "Main_order") {
+             <li class="nav-item <?php if ($this->uri->segment(1) == "List-Order") {
                                                 echo 'active';
                                             } ?>">
-                 <a href="Main_order"><i class="feather icon-copy"></i><span data-i18n="Dashboard">โพสทั้งหมด</span></a>
+                 <a href="List-Order"><i class="feather icon-copy"></i><span data-i18n="List-Order">โพสทั้งหมด</span></a>
             </li>
 
             <li class="nav-item <?php if ($this->uri->segment(1) == "List-slider") {

@@ -16,12 +16,13 @@ $route['slider_add_com']                  = 'Slider_controller/slider_add_com';
 $route['silder_edit_com']                  = 'Slider_controller/silder_edit_com';
 $route['delete_slider']                  = 'Slider_controller/delete_slider';
 $route['List-Order']                  = 'Order_controller/list_order';
-$route['List_order_pdf']                  = 'Order_controller/list_order_pdf';
 $route['Main_order']                  = 'Order_controller/main_order';
 $route['list_banner']                     = 'Banner_controller/list_banner';
 $route['banner_add_com']                     = 'Banner_controller/banner_add_com';
 $route['banner_edit_com']                     = 'Banner_controller/banner_edit_com';
 $route['delete_banner']                     = 'Banner_controller/delete_banner';
+$route['delete_Post']                     = 'Order_controller/delete_Post';
+$route['delete_comment']                     = 'Order_controller/delete_comment';
 
 
 
