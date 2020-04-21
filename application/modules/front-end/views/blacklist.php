@@ -2,24 +2,45 @@
 
 <!-- Content
 		============================================= -->
-<section id="content">
+        <section id="content">
 	<div class="heading-block center nobottomborder" style="    margin-top: 50px;">
-		<span class="ls2 t700" style="color:#e74c3c;font-size:1.9rem">โพสล่าสุด</span>
+		<span class="ls2 t700" style="color:#e74c3c;font-size:1.9rem">รายชื่อคนโกงทั้งหมด</span>
 	</div>
 	<div class="content-wrap notoppadding clearfix">
 
 		<div class="container clearfix" style="margin-bottom: 80px;">
 			<div class="service-box margin-bottom-25">
 				<div class="row no-margin">
-					<?php foreach ($post as $postDetail) { ?>
-						
 					<div class="col-4 form-group">
 						<a href="" target="">
-							<!-- <img src="uploads/img/LineTime.png"> -->
-							<?php echo $postDetail['id']; ?>
+							<img src="uploads/img/LineTime.png">
 						</a>
 					</div>
-					<?php } ?>
+					<div class="col-4 form-group">
+						<a href="" target="">
+							<img src="uploads/img/LineTime.png">
+						</a>
+					</div>
+					<div class="col-4 form-group">
+						<a href="" target="">
+							<img src="uploads/img/LineTime.png">
+						</a>
+					</div>
+					<div class="col-4 form-group">
+						<a href="" target="">
+							<img src="uploads/img/LineTime.png">
+						</a>
+					</div>
+					<div class="col-4 form-group">
+						<a href="" target="">
+							<img src="uploads/img/LineTime.png">
+						</a>
+					</div>
+					<div class="col-4 form-group">
+						<a href="" target="">
+							<img src="uploads/img/LineTime.png">
+						</a>
+					</div>
 
 				</div>
 			</div>

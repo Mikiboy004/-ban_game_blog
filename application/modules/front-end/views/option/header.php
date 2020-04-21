@@ -161,10 +161,10 @@
 										</a>
 									</li>
 									
-									<li class="<?php if ($this->uri->segment(1) == "download") {
+									<li class="<?php if ($this->uri->segment(1) == "blacklist") {
 													echo 'current';
-												} ?>"><a href="download">
-											<div>โฑสทั้งหมด</div>
+												} ?>"><a href="blacklist">
+											<div>รายชื่อโกงทั้งหมด</div>
 										</a>
 									</li>
 									<li class="<?php if ($this->uri->segment(1) == "contact") {
@@ -225,6 +225,73 @@
 			</div>
 
 		</header><!-- #header end -->
+
+		<section id="slider" class="slider-element boxed-slider">
+
+			<div class="container clearfix">
+
+				<div class="fslider" data-easing="easeInQuad">
+					<div class="flexslider">
+						<div class="slider-wrap">
+							<?php 
+								$slider = $this->db->get('tbl_slider')->result_array();
+								foreach ($slider as $slide) {
+								
+							?>
+							<div class="slide" data-thumb="uploads/slider/<?php echo $slide['file_name']; ?>">
+								<a href="#">
+									<img src="uploads/slider/<?php echo $slide['file_name']; ?>" alt="Slide 2">
+									<!-- <div class="flex-caption slider-caption-bg">Responsive Ready Design</div> -->
+								</a>
+							</div>
+							<?php } ?>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
+		</section>
+
+		
+
+		<!-- Content
+		============================================= -->
+		<section id="content">
+
+			<div class="content-wrap">
+
+				<div class="container clearfix">
+
+						<div class="clearfix center divcenter">
+							<div class="emphasis-title">
+								<h1 class="font-secondary" style="color: #123262;font-size: 2.5rem; font-weight: 900; text-shadow: 0 7px 10px rgba(0,0,0,0.07), 0 4px 4px rgba(0,0,0,0.2);margin-bottom: 1.5rem;">ลงประกาศโฆษณาเชิญประชุมผู้ถือหุ้น กรอบละ <span style="color:#FF0000;">45</span> บาท</h1>
+								<p style="font-weight: 300; font-size: 1.75rem; opacity: .7; color: #4A4A4A; text-shadow: 0 -4px 30px rgba(0, 0, 0, .25);margin-top:15px;"><b>ใช้งานง่าย สะดวก รวดเร็ว ประหยัด ดาวน์โหลดหนังสือพิมพ์ได้ในวันถัดไป</b></p>
+							</div>
+							<div class="subscribe-widget" data-loader="button">
+								<div class="widget-subscribe-form-result"></div>
+								<form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="nobottommargin h_main" data-animate="fadeInUp" style="padding:0px;border-radius: 20px 20px 20px 20px;margin:auto;">
+
+									<div class="input-group divcenter travel-date-group">
+										<input type="text" value="" class="form-control tleft default" placeholder="ค้นหาหนังสือพิมพ์จากวันที่" style="border: 0; box-shadow: none; overflow: hidden;margin:auto;border-radius: 20px 20px 20px 20px;">
+										<div class="input-group-append">
+											<button href="#" class="button t400" type="submit" style="border-radius: 0px 20px 20px 0px;">ค้นหา</button>
+										</div>
+									</div>
+								</form>
+							</div>
+							
+						</div>
+				
+
+					<div class="clear"></div><div class="line"></div>
+
+				</div>
+
+			</div>
+
+		</section><!-- #content end -->
+		
 		<script type="text/javascript">
 			$('#send_login').click(function() {
 				var email = $("#input-email").val();

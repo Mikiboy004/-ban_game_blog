@@ -12,8 +12,10 @@ class Home_ctr extends CI_Controller
 
     public function index()
     {
+        $data['post'] = $this->db->get_where('tbl_post',['status' => 1])->result_array();
+        $data['banner'] = $this->db->get('tbl_banner')->result_array();
         $this->load->view('option/header');
-        $this->load->view('home');
+        $this->load->view('home',$data);
         $this->load->view('option/footer');    
     }
 
