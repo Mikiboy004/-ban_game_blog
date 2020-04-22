@@ -11,25 +11,25 @@
 
 	<div class="container clear-bottommargin clearfix">
 		<div class="row">
-
-			<div class="col-lg-3 col-md-6 bottommargin">
-				<div class="ipost clearfix">
-					<div class="entry-image">
-						<a href="blog_detail"><img class="image_fade" src="public/assets/front-end/images/magazine/thumb/1.jpg" alt="Image"></a>
-					</div>
-					<div class="entry-title">
-						<h3><a href="blog_detail">Bloomberg smart cities; change-makers economic security</a></h3>
-					</div>
-					<ul class="entry-meta clearfix">
-						<li><i class="icon-calendar3"></i> 13th Jun 2014</li>
-						<li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li>
-					</ul>
-					<div class="entry-content">
-						<p>Prevention effect, advocate dialogue rural development lifting people up community civil society. Catalyst, grantees leverage.</p>
+			<?php foreach ($post as $post) { ?>
+				<div class="col-lg-3 col-md-6 bottommargin">
+					<div class="ipost clearfix">
+						<div class="entry-image">
+							<a href="blog_detail?id=<?= base64_encode($post['id']); ?>"><img class="image_fade" src="uploads/post/<?= $post['file_name']; ?>" alt="Image"></a>
+						</div>
+						<div class="entry-title">
+							<h3><a href="blog_detail?id=<?= base64_encode($post['id']); ?>"><?= $post['topic']; ?></a></h3>
+						</div>
+						<ul class="entry-meta clearfix">
+							<li><i class="icon-calendar3"></i> <?= thaiDate($post['date_post']); ?></li>
+							<li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li>
+						</ul>
+						<div class="entry-content">
+							<p><?= $post['detail']; ?></p>
+						</div>
 					</div>
 				</div>
-			</div>
-
+			<?php } ?>
 		</div>
 	</div>
 

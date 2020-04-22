@@ -7,12 +7,17 @@ class Blog_ctr extends CI_Controller
     public function __construct()
     {
         parent::__construct();
+        $this->load->model('Blog_model');
     }
 
     public function blog_detail()
     {
+        $id                         = base64_decode($this->input->get('id'));
+        $data['detail']             = $this->Blog_model->blog_detail($id);
+        $data['comments']           = $this->Blog_model->blog_comment($id);
+
         $this->load->view('option/header');
-        $this->load->view('blog_detail');
+        $this->load->view('blog_detail', $data);
         $this->load->view('option/footer');
     }
 

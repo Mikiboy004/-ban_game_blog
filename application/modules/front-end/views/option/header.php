@@ -34,8 +34,61 @@
 
 <body class="stretched">
 	<div id="wrapper" class="clearfix">
-	<?php $user = $this->db->get_where('tbl_user', ['username' => $this->session->userdata('username')])->row_array(); ?>
-
+		<?php $user = $this->db->get_where('tbl_user', ['username' => $this->session->userdata('username')])->row_array(); ?>
+		<?php
+		$month = array(
+			'01'  => 'มกราคม', '02'  => 'กุมภาพันธ์', '03'  => 'มีนาคม',
+			'04'  => 'เมษายน', '05'  => 'พฤษภาคม', '06'  => 'มิถุนายน',
+			'07'  => 'กรกฎาคม', '08'  => 'สิงหาคม', '09'  => 'กันยายน',
+			'10'  => 'ตุลาคม', '11'  => 'พฤศจิกายน', '12'  => 'ธันวาคม',
+		);
+		function thaiDate($datetime)
+		{
+			list($date, $time) = explode(' ', $datetime); // แยกวันที่ กับ เวลาออกจากกัน
+			list($H, $i, $s) = explode(':', $time); // แยกเวลา ออกเป็น ชั่วโมง นาที วินาที
+			list($Y, $m, $d) = explode('-', $date); // แยกวันเป็น ปี เดือน วัน
+			$Y = $Y + 543; // เปลี่ยน ค.ศ. เป็น พ.ศ.
+			switch ($m) {
+				case "01":
+					$m = "ม.ค.";
+					break;
+				case "02":
+					$m = "ก.พ.";
+					break;
+				case "03":
+					$m = "มี.ค.";
+					break;
+				case "04":
+					$m = "เม.ย.";
+					break;
+				case "05":
+					$m = "พ.ค.";
+					break;
+				case "06":
+					$m = "มิ.ย.";
+					break;
+				case "07":
+					$m = "ก.ค.";
+					break;
+				case "08":
+					$m = "ส.ค.";
+					break;
+				case "09":
+					$m = "ก.ย.";
+					break;
+				case "10":
+					$m = "ต.ค.";
+					break;
+				case "11":
+					$m = "พ.ย.";
+					break;
+				case "12":
+					$m = "ธ.ค.";
+					break;
+			}
+			return $d . " " . $m . " " . $Y;
+		}
+		?>
 		<!-- Header
 		============================================= -->
 		<header id="header" class="sticky-style-2">
@@ -91,23 +144,25 @@
 									<div>ติดต่อเรา</div>
 								</a>
 							</li>
-							<?php if($this->session->userdata('username') == ""){?>
-							<li class="<?php if ($this->uri->segment(1) == "login") {
-											echo 'current';
-										} ?>">
-								<a href="login">
-									<div>เข้าสู่ระบบ</div>
-								</a>
-							</li>
-							<?php }?>
+							<?php if ($this->session->userdata('username') == "") { ?>
+								<li class="<?php if ($this->uri->segment(1) == "login") {
+												echo 'current';
+											} ?>">
+									<a href="login">
+										<div>เข้าสู่ระบบ</div>
+									</a>
+								</li>
+							<?php } ?>
 
-							<?php if(!empty($user)){?>
-							<li class="<?php if ($this->uri->segment(1) == "logout") {
-													echo 'current';
-												} ?>">
-								<a href="logout"><div>ออกจากระบบ</div></a>
-							</li>
-							<?php }?>
+							<?php if (!empty($user)) { ?>
+								<li class="<?php if ($this->uri->segment(1) == "logout") {
+												echo 'current';
+											} ?>">
+									<a href="logout">
+										<div>ออกจากระบบ</div>
+									</a>
+								</li>
+							<?php } ?>
 						</ul>
 
 
