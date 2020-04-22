@@ -70,11 +70,6 @@
 												} ?>">
 								<a href="contact"><div>ติดต่อเรา</div></a>
 							</li>
-							<li class="<?php if ($this->uri->segment(1) == "register") {
-													echo 'register';
-												} ?>">
-								<a href="contact"><div>สมัครสมาชิก</div></a>
-							</li>
 							<li class="<?php if ($this->uri->segment(1) == "login") {
 													echo 'login';
 												} ?>">
