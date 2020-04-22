@@ -24,7 +24,19 @@ class Blog_model extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('tbl_comment');
-        $this->db->where('id',$id);
+        $this->db->where('id', $id);
+
+        $data = $this->db->get();
+        return $data->result_array();
+    }
+
+    function blog_related()
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_post');
+        $this->db->limit(4);
+        $this->db->order_by('created_at');
+
 
         $data = $this->db->get();
         return $data->result_array();

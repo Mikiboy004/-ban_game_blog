@@ -15,7 +15,7 @@ class Blog_ctr extends CI_Controller
         $id                         = base64_decode($this->input->get('id'));
         $data['detail']             = $this->Blog_model->blog_detail($id);
         $data['comments']           = $this->Blog_model->blog_comment($id);
-
+        $data['related']            = $this->Blog_model->blog_related();
         $this->load->view('option/header');
         $this->load->view('blog_detail', $data);
         $this->load->view('option/footer');
