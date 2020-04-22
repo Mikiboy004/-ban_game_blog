@@ -204,6 +204,15 @@
                                         showConfirmButton: true,
                                     });
                                 }
+
+                                if (result.message == "register error") {
+                                    Swal.fire({
+                                        position: 'start-end',
+                                        icon: 'error',
+                                        title: 'การสมัครสมาชิกล้มเหลว กรุณาลองใหม่อีกครั้ง!!',
+                                        showConfirmButton: true,
+                                    });
+                                }
                             }
 
                             if (result.successfully == true) {

@@ -98,23 +98,30 @@ class Login_ctr extends CI_Controller
 
         $data = [
             'first_name' =>  $first_name,
-            'last_name' => $last_name,
-            'id_card' => $id_card,
-            'address' => $address,
-            'birthday' => $birthday[2].'-'.$birthday[1].'-'.$birthday[0],
-            'email' => $email,
-            'line_id' => $line_id,
-            'tel' => $tel,
-            'username' => $username,
-            'password' => md5($confirm_repassword),
+            'last_name'  => $last_name,
+            'id_card'    => $id_card,
+            'address'    => $address,
+            'birthday'   => $birthday[2].'-'.$birthday[1].'-'.$birthday[0],
+            'email'      => $email,
+            'line_id'    => $line_id,
+            'tel'        => $tel,
+            'username'   => $username,
+            'password'   => md5($confirm_repassword),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ];
 
-        $this->db->insert('tbl_user',$data);
+        $success = $this->db->insert('tbl_user',$data);
+        if ($success > 0) {
+            $result['successfully'] = true;
+            $result['message'] = 'register success';
+            echo json_encode($result);
+        }else{
+            $result['successfully'] = false;
+            $result['message'] = 'register error';
+            echo json_encode($result);
+        }
 
-        $result['successfully'] = true;
-        $result['message'] = 'register success';
-        echo json_encode($result);
+        
     }
 }

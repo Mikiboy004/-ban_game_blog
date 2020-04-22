@@ -122,7 +122,7 @@
 									<div>หน้าแรก</div>
 								</a>
 							</li>
-							<li class="<?php if ($this->uri->segment(1) == "blacklist") {
+							<li class="<?php if ($this->uri->segment(1) == "blog_post") {
 											echo 'current';
 										} ?>">
 								<a href="blog_post">
