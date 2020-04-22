@@ -16,9 +16,16 @@ class Blog_ctr extends CI_Controller
         $data['detail']             = $this->Blog_model->blog_detail($id);
         $data['comments']           = $this->Blog_model->blog_comment($id);
         $data['related']            = $this->Blog_model->blog_related();
-        $this->load->view('option/header');
-        $this->load->view('blog_detail', $data);
-        $this->load->view('option/footer');
+        if (empty($id)) {
+            echo "<script>";
+            echo "alert('กรุณาเลือกหัวข้อ BLOG ที่ต้องการก่อนเข้าหน้านี้.');";
+            echo "window.location='index';";
+            echo "</script>";
+        } else {
+            $this->load->view('option/header');
+            $this->load->view('blog_detail', $data);
+            $this->load->view('option/footer');
+        }
     }
 
     public function blog_post()

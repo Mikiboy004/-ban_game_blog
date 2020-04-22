@@ -29,7 +29,7 @@
 	<link rel="stylesheet" href="public/assets/front-end/css/components/bs-filestyle.css" type="text/css" />
 	<!-- Document Title
 	============================================= -->
-	<title>Canvas | The Multi-Purpose HTML5 Template</title>
+	<title>Black-List TH | ตรวจสอบรายชื่อคนโกงได้ที่นี่</title>
 </head>
 
 <body class="stretched">
@@ -123,13 +123,13 @@
 								</a>
 							</li>
 							<?php if (!empty($user)) { ?>
-							<li class="<?php if ($this->uri->segment(1) == "blog_post") {
-											echo 'current';
-										} ?>">
-								<a href="blog_post">
-									<div>โพสบล็อค</div>
-								</a>
-							</li>
+								<li class="<?php if ($this->uri->segment(1) == "blog_post") {
+												echo 'current';
+											} ?>">
+									<a href="blog_post">
+										<div>โพสบล็อค</div>
+									</a>
+								</li>
 							<?php } ?>
 							<li class="<?php if ($this->uri->segment(1) == "blacklist") {
 											echo 'current';
@@ -157,11 +157,26 @@
 							<?php } ?>
 
 							<?php if (!empty($user)) { ?>
-								<li class="<?php if ($this->uri->segment(1) == "logout") {
-												echo 'current';
-											} ?>">
+								<li>
+									<a href="#">
+										<div> | <i class="icon-user"></i><?= $user['first_name'] . ' ' . $user['last_name']; ?> <i class="icon-chevron-down1"></i></div>
+									</a>
+									<ul>
+										<li>
+											<a href="profile">
+												<div>ข้อมูลส่วนตัว</div>
+											</a>
+											<a href="order-history">
+												<div>ประวัติรายการโพส</div>
+											</a>
+										</li>
+									</ul>
+								</li>
+								<li style="margin-left:0" class="<?php if ($this->uri->segment(1) == "logout") {
+																		echo 'current';
+																	} ?>">
 									<a href="logout">
-										<div>ออกจากระบบ</div>
+										<div>|<i class="icon-signout"></i>ออกจากระบบ |</div>
 									</a>
 								</li>
 							<?php } ?>
