@@ -71,9 +71,9 @@
 								<a href="contact"><div>ติดต่อเรา</div></a>
 							</li>
 							<li class="<?php if ($this->uri->segment(1) == "login") {
-													echo 'login';
+													echo 'current';
 												} ?>">
-								<a href="contact"><div>เข้าสู่ระบบ</div></a>
+								<a href="login"><div>เข้าสู่ระบบ</div></a>
 							</li>
 							
 						</ul>
@@ -88,7 +88,7 @@
 
 		</header><!-- #header end -->
 
-		<?php if ($this->uri->segment(1) != "contact") { ?>
+		<?php if ($this->uri->segment(1) != "contact" && $this->uri->segment(1) != "login") { ?>
 		<section id="slider" class="slider-element slider-parallax swiper_wrapper clearfix">
 
 			<div class="swiper-container swiper-parent">
@@ -136,7 +136,7 @@
 									<div class="input-group divcenter travel-date-group">
 										<input type="text" value="" class="form-control" placeholder="ค้นหารายชื่อคนโกง" style="border: 0; box-shadow: none; overflow: hidden;margin:auto;border-radius: 20px 20px 20px 20px;">
 										<div class="input-group-append" style="margin-left: -30px;">
-											<button href="#" class="button t400" type="submit" style="border-radius: 0px 20px 20px 0px;">ค้นหา</button>
+											<button href="#" class="button t400" type="submit" style="border-radius: 0px 20px 20px 0px; z-index:100;">ค้นหา</button>
 										</div>
 									</div>
 								</form>

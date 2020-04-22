@@ -14,7 +14,10 @@ class Login_ctr extends CI_Controller
         if ($this->session->userdata('email') != '') {
             redirect('index');
         } else {
+
+            $this->load->view('option/header');
             $this->load->view('login');
+            $this->load->view('option/footer');
         }
     }
 

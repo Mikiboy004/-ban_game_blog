@@ -9,6 +9,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['index']             = 'front-end/Home_ctr';
 $route['blacklist']         = 'front-end/Blacklist_ctr';
+$route['login']             = 'front-end/Login_ctr';
 $route['loginMe']           = 'front-end/Login_ctr/loginMe';
 $route['logout']            = 'front-end/Login_ctr/logout';
 $route['register']          = 'front-end/Register_ctr';
