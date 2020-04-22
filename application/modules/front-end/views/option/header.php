@@ -32,7 +32,7 @@
 
 <body class="stretched">
 	<div id="wrapper" class="clearfix">
-		<?php $user = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array(); ?>
+	<?php $user = $this->db->get_where('tbl_user', ['username' => $this->session->userdata('username')])->row_array(); ?>
 
 				<!-- Header
 		============================================= -->
@@ -75,12 +75,21 @@
 												} ?>">
 								<a href="contact"><div>ติดต่อเรา</div></a>
 							</li>
+							<?php if($this->session->userdata('username') == ""){?>
 							<li class="<?php if ($this->uri->segment(1) == "login") {
 													echo 'current';
 												} ?>">
 								<a href="login"><div>เข้าสู่ระบบ</div></a>
 							</li>
-							
+							<?php }?>
+
+							<?php if(!empty($user)){?>
+							<li class="<?php if ($this->uri->segment(1) == "logout") {
+													echo 'current';
+												} ?>">
+								<a href="logout"><div>ออกจากระบบ</div></a>
+							</li>
+							<?php }?>
 						</ul>
 
 						

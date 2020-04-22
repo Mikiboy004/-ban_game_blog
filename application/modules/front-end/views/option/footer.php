@@ -250,6 +250,7 @@
 
 	<!-- External JavaScripts
 	============================================= -->
+	<script src="public/assets/front-end/sweetalert2.js"></script>
 	<script src="public/assets/front-end/js/jquery.js"></script>
 	<script src="public/assets/front-end/js/plugins.js"></script>
 
@@ -265,6 +266,24 @@
 	<script src="public/assets/front-end/js/components/daterangepicker.js"></script>
 
 	<script>
+		<?php if ($this->session->flashdata('success_login')) : ?>
+				Swal.fire({
+					position: 'start-end',
+					icon: 'success',
+					title: 'Welcome',
+					showConfirmButton: false,
+					timer: 1500
+				});
+			<?php endif; ?>
+			<?php if ($this->session->flashdata('fail_login')) : ?>
+				Swal.fire({
+					position: 'start-end',
+					icon: 'error',
+					title: 'รหัสผ่านไม่ถูกต้อง',
+					showConfirmButton: true,
+				});
+			<?php endif; ?>
+			
 		$(function() {
 			$('.travel-date-group .default').datepicker({
 				autoclose: true,

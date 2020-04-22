@@ -9,9 +9,9 @@ class Login_model extends CI_Model
       parent::__construct();
    }
 
-   public function login($email, $password)
+   public function login($username, $password)
    {
-      $this->db->where('email', $email);
+      $this->db->where('username', $username);
       $this->db->where('password', $password);
       $query = $this->db->get('tbl_user');
 
@@ -22,11 +22,11 @@ class Login_model extends CI_Model
       }
    }
 
-   public function forgot_check_usre($email)
+   public function forgot_check_usre($username)
     {
         $this->db->select('*');
         $this->db->from('tbl_user');
-        $this->db->where('email', $email);
+        $this->db->where('username', $username);
 
         $data = $this->db->get();
 
