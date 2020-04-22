@@ -17,6 +17,11 @@
 	<link rel="stylesheet" href="public/assets/front-end/css/animate.css" type="text/css" />
 	<link rel="stylesheet" href="public/assets/front-end/css/magnific-popup.css" type="text/css" />
 
+	<!-- Date & Time Picker CSS -->
+	<link rel="stylesheet" href="public/assets/front-end/css/components/datepicker.css" type="text/css" />
+	<link rel="stylesheet" href="public/assets/front-end/css/components/timepicker.css" type="text/css" />
+	<link rel="stylesheet" href="public/assets/front-end/css/components/daterangepicker.css" type="text/css" />
+
 	<link rel="stylesheet" href="public/assets/front-end/css/responsive.css" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
@@ -29,7 +34,7 @@
 
 <body class="stretched">
 	<div id="wrapper" class="clearfix">
-		<?php $user = $this->db->get_where('tbl_user', ['email' => $this->session->userdata('email')])->row_array(); ?>
+	<?php $user = $this->db->get_where('tbl_user', ['username' => $this->session->userdata('username')])->row_array(); ?>
 
 		<!-- Header
 		============================================= -->
@@ -86,6 +91,7 @@
 									<div>ติดต่อเรา</div>
 								</a>
 							</li>
+							<?php if($this->session->userdata('username') == ""){?>
 							<li class="<?php if ($this->uri->segment(1) == "login") {
 											echo 'current';
 										} ?>">
@@ -93,7 +99,15 @@
 									<div>เข้าสู่ระบบ</div>
 								</a>
 							</li>
+							<?php }?>
 
+							<?php if(!empty($user)){?>
+							<li class="<?php if ($this->uri->segment(1) == "logout") {
+													echo 'current';
+												} ?>">
+								<a href="logout"><div>ออกจากระบบ</div></a>
+							</li>
+							<?php }?>
 						</ul>
 
 

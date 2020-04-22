@@ -254,6 +254,9 @@
 	<script src="public/assets/front-end/js/plugins.js"></script>
 	<!-- Range Slider Plugin -->
 	<script src="public/assets/front-end/js/components/rangeslider.min.js"></script>
+	<script src="public/assets/front-end/sweetalert2.js"></script>
+	<script src="public/assets/front-end/js/jquery.js"></script>
+	<script src="public/assets/front-end/js/plugins.js"></script>
 
 	<!-- Bootstrap File Upload Plugin -->
 	<script src="public/assets/front-end/js/components/bs-filestyle.js"></script>
@@ -275,6 +278,12 @@
 				input_values_separator: ' to '
 			});
 
+	<!-- Date & Time Picker JS -->
+	<script src="public/assets/front-end/js/components/moment.js"></script>
+	<script src="public/assets/front-end/js/components/datepicker.js"></script>
+	<script src="public/assets/front-end/js/components/timepicker.js"></script>
+	<!-- Include Date Range Picker -->
+	<script src="public/assets/front-end/js/components/daterangepicker.js"></script>
 			tinymce.init({
 				selector: '#freelance-quote-additional-notes',
 				menubar: false,
@@ -285,6 +294,34 @@
 				}
 			});
 
+	<script>
+		<?php if ($this->session->flashdata('success_login')) : ?>
+				Swal.fire({
+					position: 'start-end',
+					icon: 'success',
+					title: 'Welcome',
+					showConfirmButton: false,
+					timer: 1500
+				});
+			<?php endif; ?>
+			<?php if ($this->session->flashdata('fail_login')) : ?>
+				Swal.fire({
+					position: 'start-end',
+					icon: 'error',
+					title: 'รหัสผ่านไม่ถูกต้อง',
+					showConfirmButton: true,
+				});
+			<?php endif; ?>
+			
+		$(function() {
+			$('.travel-date-group .default').datepicker({
+				autoclose: true,
+				endDate: "today",
+				format: "dd/mm/yyyy",
+			});
+		});
+	</script>
+	</body>
 			$("#freelance-quote-sample").fileinput({
 				browseClass: "btn btn-secondary",
 				browseIcon: "",
