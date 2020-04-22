@@ -17,6 +17,11 @@
 	<link rel="stylesheet" href="public/assets/front-end/css/animate.css" type="text/css" />
 	<link rel="stylesheet" href="public/assets/front-end/css/magnific-popup.css" type="text/css" />
 
+	<!-- Date & Time Picker CSS -->
+	<link rel="stylesheet" href="public/assets/front-end/css/components/datepicker.css" type="text/css" />
+	<link rel="stylesheet" href="public/assets/front-end/css/components/timepicker.css" type="text/css" />
+	<link rel="stylesheet" href="public/assets/front-end/css/components/daterangepicker.css" type="text/css" />
+
 	<link rel="stylesheet" href="public/assets/front-end/css/responsive.css" type="text/css" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
