@@ -122,6 +122,7 @@
 									<div>หน้าแรก</div>
 								</a>
 							</li>
+							<?php if (!empty($user)) { ?>
 							<li class="<?php if ($this->uri->segment(1) == "blog_post") {
 											echo 'current';
 										} ?>">
@@ -129,6 +130,7 @@
 									<div>โพสบล็อค</div>
 								</a>
 							</li>
+							<?php } ?>
 							<li class="<?php if ($this->uri->segment(1) == "blacklist") {
 											echo 'current';
 										} ?>">
