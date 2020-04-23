@@ -76,24 +76,51 @@
                                                         <input type="text" id="register-form-phone" name="tel" value="<?= $userlist['tel']; ?>" class="form-control" required />
                                                     </div>
                                                 </div>
-                                                <!-- <div class="col_full">
-                                                    <p style="font-size:1.2rem;color:#000000">เปลี่ยนรหัสผ่าน</p>
-                                                </div>
-                                                <hr>
-                                                <div class="col_full">
-                                                    <label for="register-form-password">รหัสผ่าน: <span style="color:red;">*</span></label>
-                                                    <input type="password" id="register-form-password" name="password" value="" class="form-control" required />
-                                                </div>
-                                                <div class="col_full">
-                                                    <label for="register-form-repassword">ยืนยันรหัสผ่าน: <span style="color:red;">*</span></label>
-                                                    <input type="password" id="register-form-repassword" name="confirm_repassword" value="" class="form-control" required />
-                                                </div> -->
 
                                                 <div class="col_full nobottommargin">
                                                     <button class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit" value="register">อัพเดทข้อมูล</button>
+                                                    <button class="button button-3d button-primary nomargin" type="button" data-toggle="modal" data-target=".bs-example-modal-lg">เปลี่ยนรหัสผ่าน</button>
                                                 </div>
 
                                             </form>
+                                            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog modal-lg">
+                                                    <div class="modal-body">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h4 class="modal-title" id="myModalLabel">เปลี่ยนรหัสผ่าน</h4>
+                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form id="register-form" class="nobottommargin" action="edit_password" method="post" enctype="multipart/form-data">
+
+                                                                    <input type="hidden" name="id_user" value="<?php echo $userlist['id_user']; ?>">
+
+                                                                    <div class="col_full">
+                                                                        <label for="register-form-email">รหัสผ่านเก่า: <span style="color:red;">*</span></label>
+                                                                        <input type="password" id="register-form-email" name="old_password" value="" class="form-control" required />
+                                                                    </div>
+                                                                    <div class="col_full">
+                                                                        <label for="register-form-email">รหัสผ่านใหม่: <span style="color:red;">*</span></label>
+                                                                        <input type="password" id="register-form-email" name="new_password" value="" class="form-control" required />
+                                                                    </div>
+                                                                    <div class="col_full">
+                                                                        <label for="register-form-email">ยืนยันรหัสผ่านใหม่: <span style="color:red;">*</span></label>
+                                                                        <input type="password" id="register-form-email" name="confirm_new_password" value="" class="form-control" required />
+                                                                    </div>
+
+
+
+                                                                    <div class="col_full nobottommargin">
+                                                                        <button class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit" value="register">อัพเดทข้อมูล</button>
+                                                                    </div>
+
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-2 col-xd-2"></div>
@@ -109,6 +136,8 @@
 
 
     </div>
+
+
 
 </section><!-- #content end -->
 <script src="public/assets/front-end/js/newjs.js"></script>

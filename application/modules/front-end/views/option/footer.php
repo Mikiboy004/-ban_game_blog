@@ -343,6 +343,38 @@
 				showConfirmButton: true,
 			});
 		<?php endif; ?>
+		<?php if ($this->session->flashdata('old_passwordCheck')) : ?>
+			Swal.fire({
+				position: 'start-end',
+				icon: 'error',
+				title: 'รหัสผ่านเก่าของคุณไม่ถูกต้อง กรุณาลองใหม่อีกครั้ง!!',
+				showConfirmButton: true,
+			});
+		<?php endif; ?>
+		<?php if ($this->session->flashdata('newPasswordCheck')) : ?>
+			Swal.fire({
+				position: 'start-end',
+				icon: 'error',
+				title: 'รหัสผ่านใหม่และยืนยันรหัสผ่านใหม่ของคุณไม่ตรงกัน กรุณากรองให้ตรงกัน!!',
+				showConfirmButton: true,
+			});
+		<?php endif; ?>
+		<?php if ($this->session->flashdata('newPasswordSuccess')) : ?>
+			Swal.fire({
+				position: 'start-end',
+				icon: 'success',
+				title: 'การแก้ไขรหัสผ่านสำเร็จ !!',
+				showConfirmButton: true,
+			});
+		<?php endif; ?>
+		<?php if ($this->session->flashdata('newPasswordFail')) : ?>
+			Swal.fire({
+				position: 'start-end',
+				icon: 'error',
+				title: 'การแก้ไขรหัสผ่านล้มเหลว กรุณาลองใหม่อีกครั้ง!!',
+				showConfirmButton: true,
+			});
+		<?php endif; ?>
 
 		$(function() {
 			$('.travel-date-group .default').datepicker({
