@@ -143,7 +143,6 @@ class Profile_ctr extends CI_Controller
 			echo "alert('คุณไม่ได้รับสิทธิ์ในการเข้าถึงหน้านี้.');";
 			echo "window.location='index';";
 			echo "</script>";
-			exit();
 		}
 
 		$id_user = $this->input->post('id_user');
@@ -174,6 +173,26 @@ class Profile_ctr extends CI_Controller
 		} else {
 			$this->session->set_flashdata('edit_profileFail', TRUE);
 			redirect('profile');
+		}
+	}
+
+	function profile_post()
+	{
+		$user  				= $this->session->userdata('username');
+		$userId				= $this->db->get_where('tbl_user', ['username' => $user])->row_array();
+		$Id					= $userId['id_user'];
+
+		$data['my_post']	= $this->Profile_model->profile_post($Id);
+
+		if (empty($user)) {
+			echo "<script>";
+			echo "alert('คุณไม่ได้รับสิทธิ์ในการเข้าถึงหน้านี้.');";
+			echo "window.location='index';";
+			echo "</script>";
+		} else {
+			$this->load->view('option/header');
+			$this->load->view('profile_post', $data);
+			$this->load->view('option/footer');
 		}
 	}
 }
