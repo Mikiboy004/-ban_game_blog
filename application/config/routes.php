@@ -16,6 +16,8 @@ $route['logout']            = 'front-end/Login_ctr/logout';
 $route['blog_detail']       = 'front-end/Blog_ctr/blog_detail';
 $route['blog_post']         = 'front-end/Blog_ctr/blog_post';
 $route['blog_post_success'] = 'front-end/Blog_ctr/blog_post_add';
+$route['comment']           = 'front-end/Blog_ctr/comment';
+
 $route['contact']           = 'front-end/Contact_ctr/index';
 $route['contact_add']       = 'front-end/Contact_ctr/contact_add';
 $route['profile']           = 'front-end/Profile_ctr/profile';

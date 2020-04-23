@@ -15,6 +15,7 @@ class Blog_ctr extends CI_Controller
         $id                         = base64_decode($this->input->get('id'));
         $data['detail']             = $this->Blog_model->blog_detail($id);
         $data['comments']           = $this->Blog_model->blog_comment($id);
+        $data['comment_count']      = $this->Blog_model->blog_comment_count($id);
         $data['related']            = $this->Blog_model->blog_related();
         if (empty($id)) {
             echo "<script>";
@@ -50,6 +51,7 @@ class Blog_ctr extends CI_Controller
         $userId             = $this->db->get_where('tbl_user', ['username' => $user])->row_array();
         $topic              = $this->input->post('topic');
         $detail             = $this->input->post('detail');
+        $cheat              = $this->input->post('cheat');
 
         $this->load->library('upload');
 
@@ -71,9 +73,9 @@ class Blog_ctr extends CI_Controller
 
                     $gamber     = $this->upload->data();
                     $data = array(
-
                         'topic'             => $topic,
                         'detail'            => $detail,
+                        'cheat'             => $cheat,
                         'file_name'         => $gamber['file_name'],
                         'date_post'         => date('Y-m-d H:i:s'),
                         'created_at'        => date('Y-m-d H:i:s'),
@@ -91,6 +93,39 @@ class Blog_ctr extends CI_Controller
                         echo "</script>";
                     }
                 }
+            }
+        } else {
+            echo "<script>";
+            echo "alert('คุณไม่ได้รับสิทธิ์ในการเข้าถึงหน้านี้.');";
+            echo "window.location='index';";
+            echo "</script>";
+        }
+    }
+
+    public function comment()
+    {
+        $user               = $this->session->userdata('username');
+        $userId             = $this->db->get_where('tbl_user', ['username' => $user])->row_array();
+        $id_not             = $this->input->post('id');
+        $id                 = base64_decode($this->input->post('id'));
+        $comment            = $this->input->post('comment');
+        if (!empty($user)) {
+            $data = array(
+                'post_id'           => $id,
+                'comment'           => $comment,
+                'created_at'         => date('Y-m-d H:i:s'),
+                'user_id'           => $userId['id_user'],
+            );
+            if ($this->db->insert('tbl_comment', $data)) {
+                echo "<script>";
+                echo "alert('โพสข้อความเรียบร้อย.');";
+                echo "window.location='blog_detail?id=$id_not';";
+                echo "</script>";
+            } else {
+                echo "<script>";
+                echo "alert('เกิดข้อผิดพลาด กรุณาลองใหม่อีกครั้ง.');";
+                echo "window.location='blog_detail?id=$id_not';";
+                echo "</script>";
             }
         } else {
             echo "<script>";

@@ -22,12 +22,24 @@ class Blog_model extends CI_Model
 
     function blog_comment($id)
     {
-        $this->db->select('*');
+        $this->db->select('*,tbl_user.file_name AS fileUser,tbl_comment.created_at AS timecom  ');
         $this->db->from('tbl_comment');
-        $this->db->where('id', $id);
+        $this->db->join('tbl_user', 'tbl_comment.user_id = tbl_user.id_user', 'left');
+        $this->db->where('post_id', $id);
 
         $data = $this->db->get();
         return $data->result_array();
+    }
+
+    function blog_comment_count($id)
+    {
+        $this->db->select('count(*) AS countAll');
+        $this->db->from('tbl_comment');
+        $this->db->join('tbl_user', 'tbl_comment.user_id = tbl_user.id_user', 'left');
+        $this->db->where('post_id', $id);
+
+        $data = $this->db->get();
+        return $data->row_array();
     }
 
     function blog_related()

@@ -29,18 +29,23 @@
                 <div class="col-lg-12">
                     <form action="blog_post_success" method="post" enctype="multipart/form-data">
                         <div class="col-12 form-group">
+                            <label>รูปภาพปก:</label>
+                            <input type="file" id="freelance-quote-sample" name="file_name" data-show-preview="false" accept="image/gif, image/jpeg, image/png" required />
+                        </div>
+                        <div class="col-12 form-group">
                             <label>หัวข้อเรื่อง:</label>
                             <input type="text" name="topic" id="freelance-quote-name" class="form-control" value="" placeholder="หัวข้อที่จะโพส" required>
+                        </div>
+                        <div class="col-12 form-group">
+                            <label>รายชื่อคนโกง:</label>
+                            <input type="text" name="cheat" id="freelance-quote-name" class="form-control" value="" placeholder="รายชื่อคนโกง" required>
                         </div>
                         <div class="w-100"></div>
                         <div class="col-12 form-group">
                             <label>รายละเอียด:</label>
-                            <textarea name="detail" id="freelance-quote-additional-notes" class="form-control" cols="30" rows="10" required></textarea>
+                            <textarea name="detail" id="editor1" required></textarea>
                         </div>
-                        <div class="col-12 form-group">
-                            <label>รูปภาพปก:</label>
-                            <input type="file" id="freelance-quote-sample" name="file_name" data-show-preview="false" accept="image/gif, image/jpeg, image/png" required />
-                        </div>
+
                         <div class="col-12 hidden">
                             <input type="text" id="freelance-quote-botcheck" name="freelance-quote-botcheck" value="" />
                         </div>

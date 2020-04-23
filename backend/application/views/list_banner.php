@@ -73,7 +73,7 @@
                                                     <?php foreach ($banner as $key => $banner) { ?>
                                                         <tr>
                                                             <td><?php echo $i++ ?></td>
-                                                            <td><img src="../uploads/banner/<?php echo $banner['file_name'] ?>" alt="" style="width:200px"></td>
+                                                            <td><img src="../uploads/banner/<?php echo $banner['file_name'] ?>" style="width:200px"></td>
                                                           
                                                             <td><?php echo $banner['created_at'] ?></td>
                                                             <td>

@@ -271,6 +271,22 @@
 	<script src="public/assets/front-end/js/components/timepicker.js"></script>
 	<!-- Include Date Range Picker -->
 	<script src="public/assets/front-end/js/components/daterangepicker.js"></script>
+
+	<script src="public/assets/front-end/ckeditor/ckeditor.js"></script>
+	<script>
+		// Replace the <textarea id="editor1"> with a CKEditor
+		// instance, using default configuration.
+		CKEDITOR.replace('editor1', {
+			height : 300
+		});
+	</script>
+
+	<script>
+		// Replace the <textarea id="editor1"> with a CKEditor
+		// instance, using default configuration.
+		CKEDITOR.replace('editor2');
+	</script>
+
 	<script>
 		jQuery(document).ready(function() {
 			$(".price-range-slider").ionRangeSlider({
