@@ -31,6 +31,15 @@ class Profile_ctr extends CI_Controller
 
 	public function edit_profile()
 	{
+		$user  = $this->session->userdata('username');
+		if (empty($user)) {
+			echo "<script>";
+			echo "alert('คุณไม่ได้รับสิทธิ์ในการเข้าถึงหน้านี้.');";
+			echo "window.location='index';";
+			echo "</script>";
+			exit();
+		}
+
 		$id_user = $this->input->post('id_user');
 		$first_name = $this->input->post('first_name');
 		$last_name = $this->input->post('last_name');
@@ -47,14 +56,14 @@ class Profile_ctr extends CI_Controller
 		$username = $this->input->post('username');
 
 
-		$this->db->where_not_in('id_user',[$id_user]);
+		$this->db->where_not_in('id_user', [$id_user]);
 		$checkId_card = $this->db->get_where('tbl_user', ['id_card' => $id_card])->row_array();
 		if (!empty($checkId_card)) {
 			$this->session->set_flashdata('checkEdit_profileId_card', TRUE);
 			redirect('profile');
 			exit();
 		}
-		$this->db->where_not_in('id_user',[$id_user]);
+		$this->db->where_not_in('id_user', [$id_user]);
 		$checkEmail = $this->db->get_where('tbl_user', ['email' => $email])->row_array();
 		if (!empty($checkEmail)) {
 			$this->session->set_flashdata('checkEdit_profileEmail', TRUE);
@@ -77,7 +86,7 @@ class Profile_ctr extends CI_Controller
 
 		if ($_FILES['file_name']['name']) {
 			if ($this->upload->do_upload('file_name')) {
-				$deletePath = $this->db->get_where('tbl_user',['id_user'=>$id_user])->row_array();
+				$deletePath = $this->db->get_where('tbl_user', ['id_user' => $id_user])->row_array();
 				unlink('./uploads/user/' . $deletePath['file_name']);
 				$gamber     = $this->upload->data();
 				$data = [
@@ -92,7 +101,7 @@ class Profile_ctr extends CI_Controller
 					'updated_at' => date('Y-m-d H:i:s'),
 					'file_name'  => $gamber['file_name'],
 				];
-				$this->db->where('id_user',$id_user);
+				$this->db->where('id_user', $id_user);
 				$success = $this->db->update('tbl_user', $data);
 				if ($success > 0) {
 					$this->session->set_flashdata('edit_profileSuccess', TRUE);
@@ -114,7 +123,7 @@ class Profile_ctr extends CI_Controller
 				'tel'        => $tel,
 				'updated_at' => date('Y-m-d H:i:s'),
 			];
-			$this->db->where('id_user',$id_user);
+			$this->db->where('id_user', $id_user);
 			$success = $this->db->update('tbl_user', $data);
 			if ($success > 0) {
 				$this->session->set_flashdata('edit_profileSuccess', TRUE);
@@ -123,6 +132,67 @@ class Profile_ctr extends CI_Controller
 				$this->session->set_flashdata('edit_profileFail', TRUE);
 				redirect('profile');
 			}
+		}
+	}
+
+	public function edit_password()
+	{
+		$user  = $this->session->userdata('username');
+		if (empty($user)) {
+			echo "<script>";
+			echo "alert('คุณไม่ได้รับสิทธิ์ในการเข้าถึงหน้านี้.');";
+			echo "window.location='index';";
+			echo "</script>";
+		}
+
+		$id_user = $this->input->post('id_user');
+		$old_password = $this->input->post('old_password');
+		$old_password = md5($old_password);
+		$new_password = $this->input->post('new_password');
+		$confirm_new_password = $this->input->post('confirm_new_password');
+
+		$userCheck = $this->db->get_where('tbl_user', ['id_user' => $id_user])->row_array();
+		if ($userCheck['password'] != $old_password) {
+			$this->session->set_flashdata('old_passwordCheck', TRUE);
+			redirect('profile');
+		}
+		if ($new_password != $confirm_new_password) {
+			$this->session->set_flashdata('newPasswordCheck', TRUE);
+			redirect('profile');
+		}
+
+		$data = [
+			'password'        => md5($confirm_new_password),
+			'updated_at' 	  => date('Y-m-d H:i:s'),
+		];
+		$this->db->where('id_user', $id_user);
+		$success = $this->db->update('tbl_user', $data);
+		if ($success > 0) {
+			$this->session->set_flashdata('edit_profileSuccess', TRUE);
+			redirect('profile');
+		} else {
+			$this->session->set_flashdata('edit_profileFail', TRUE);
+			redirect('profile');
+		}
+	}
+
+	function profile_post()
+	{
+		$user  				= $this->session->userdata('username');
+		$userId				= $this->db->get_where('tbl_user', ['username' => $user])->row_array();
+		$Id					= $userId['id_user'];
+
+		$data['my_post']	= $this->Profile_model->profile_post($Id);
+
+		if (empty($user)) {
+			echo "<script>";
+			echo "alert('คุณไม่ได้รับสิทธิ์ในการเข้าถึงหน้านี้.');";
+			echo "window.location='index';";
+			echo "</script>";
+		} else {
+			$this->load->view('option/header');
+			$this->load->view('profile_post', $data);
+			$this->load->view('option/footer');
 		}
 	}
 }

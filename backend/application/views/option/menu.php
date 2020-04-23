@@ -20,10 +20,10 @@
                                                     echo 'active';
                                                 } ?>"><a href="Dashboard"><i class="feather icon-home"></i><span data-i18n="Dashboard">Dashboard</span></a></li> -->
                 <?php if ($admin) { ?>
-                    <li class="nav-item <?php if ($this->uri->segment(1) == "List-admin") {
+                    <li class="nav-item <?php if ($this->uri->segment(1) == "List-user") {
                                                 echo 'active';
                                             } ?>">
-                 <a href="List-admin"><i class="feather icon-users"></i><span data-i18n="Dashboard">User</span></a>
+                 <a href="List-user"><i class="feather icon-users"></i><span data-i18n="Dashboard">User</span></a>
             </li>  
                 <?php } ?>
 

@@ -5,7 +5,7 @@
 
 	<meta http-equiv="content-type" content="text/html; charset=utf-8" />
 	<meta name="author" content="SemiColonWeb" />
-
+	<link rel="shortcut icon" href="public/assets/front-end/images/logo_ban_new.png" />
 	<!-- Stylesheets
 	============================================= -->
 	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,400i,700|Raleway:300,400,500,600,700|Crete+Round:400i" rel="stylesheet" type="text/css" />
@@ -171,7 +171,7 @@
 
 										</li>
 										<li>
-											<a href="order-history">
+											<a href="profile_post">
 												<div>ประวัติรายการโพส</div>
 											</a>
 										</li>
@@ -197,7 +197,7 @@
 
 		</header><!-- #header end -->
 
-		<?php if ($this->uri->segment(1) != "contact" && $this->uri->segment(1) != "login"  && $this->uri->segment(1) != "profile") { ?>
+		<?php if ($this->uri->segment(1) != "contact" && $this->uri->segment(1) != "login"  && $this->uri->segment(1) != "profile" && $this->uri->segment(1) != "profile_post") { ?>
 			<section id="slider" class="slider-element slider-parallax swiper_wrapper clearfix">
 
 				<div class="swiper-container swiper-parent">
