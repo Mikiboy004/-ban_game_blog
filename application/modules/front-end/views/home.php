@@ -25,7 +25,7 @@
 							<li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li>
 						</ul>
 						<div class="entry-content">
-							<p><?= $post['detail']; ?></p>
+							<p><?= substr($post['detail'], 0,250); ?></p>
 						</div>
 					</div>
 				</div>

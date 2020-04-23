@@ -47,13 +47,14 @@ class Blog_ctr extends CI_Controller
     public function blog_post_add()
     {
         $user               = $this->session->userdata('username');
-        $userId             = $this->db->get_where('tbl_user', ['username' => $user])->ror_array();
+        $userId             = $this->db->get_where('tbl_user', ['username' => $user])->row_array();
         $topic              = $this->input->post('topic');
         $detail             = $this->input->post('detail');
 
         $this->load->library('upload');
 
         if (!empty($user)) {
+            $this->load->library('upload');
             // |xlsx|pdf|docx
             $config['upload_path'] = 'uploads/post/';
             $config['allowed_types'] = '*';
@@ -65,10 +66,8 @@ class Blog_ctr extends CI_Controller
 
             $this->upload->initialize($config);
 
-            $data = array();
-
-            if ($_FILES['file']['name']) {
-                if ($this->upload->do_upload('file')) {
+            if ($_FILES['file_name']['name']) {
+                if ($this->upload->do_upload('file_name')) {
 
                     $gamber     = $this->upload->data();
                     $data = array(
@@ -78,9 +77,9 @@ class Blog_ctr extends CI_Controller
                         'file_name'         => $gamber['file_name'],
                         'date_post'         => date('Y-m-d H:i:s'),
                         'created_at'        => date('Y-m-d H:i:s'),
-                        'id_user'           => $userId['id_user'],
+                        'user_id'           => $userId['id_user'],
                     );
-                    if ($this->db->insert('tbl_pdf', $data)) {
+                    if ($this->db->insert('tbl_post', $data)) {
                         echo "<script>";
                         echo "alert('บันทึกข้อมูลเสร็จสิ้น รอผู้ดูแลระบบอนุมัติ.');";
                         echo "window.location='index';";

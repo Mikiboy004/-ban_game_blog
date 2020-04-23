@@ -91,7 +91,7 @@
                             <?php foreach ($related as $related) { ?>
                                 <div class="mpost clearfix">
                                     <div class="entry-image">
-                                        <a href="#"><img src="public/assets/front-end/images/blog/small/10.jpg" alt="Blog Single"></a>
+                                        <a href="#"><img src="uploads/post/<?= $related['file_name']; ?>" alt="Blog Single"></a>
                                     </div>
                                     <div class="entry-c">
                                         <div class="entry-title">
@@ -101,7 +101,7 @@
                                             <li><i class="icon-calendar3"></i> <?= thaiDate($related['date_post']); ?></li>
                                             <li><a href="#"><i class="icon-comments"></i> 12</a></li>
                                         </ul>
-                                        <div class="entry-content"><?= substr($related['detail'], 0, 30); ?></div>
+                                        <div class="entry-content"><?= substr($related['detail'], 0, 50); ?></div>
                                     </div>
                                 </div>
 
