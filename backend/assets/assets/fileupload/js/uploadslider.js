@@ -38,6 +38,7 @@ $(function () {
     };
   };
 
+
    function previewImagecate() {
     document.getElementById("image-previewcate").style.display = "block";
     var oFReader = new FileReader();

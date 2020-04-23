@@ -86,7 +86,7 @@
                                                                         <form action="banner_edit_com" method="post" class="form-horizontal" enctype="multipart/form-data">
                                                                             <div class="modal-content">
                                                                                 <div class="modal-header">
-                                                                                    <h5 class="modal-title" id="exampleModalLabel">สไลด์</h5>
+                                                                                    <h5 class="modal-title" id="exampleModalLabel">แบนเนอร์</h5>
                                                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                                                                         <span aria-hidden="true">&times;</span>
                                                                                     </button>
@@ -97,18 +97,20 @@
 
 
 
-                                                                                    <div class="col-xl-12 col-md-6 col-12 mb-1">
+                                                                                    <div class="col-xl-12 col-md-6 col-12 mb-1" id="search_image">
                                                                                         <div class="form-group">
                                                                                             <label for="helpInputTop">ลิงค์</label>
                                                                                             <input type="text" class="form-control" name="link" placeholder="Enter Link" required>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="helpInputTop">File name</label>
-                                                                                            <input type="file" class="form-control" name="file_name" id="image-source" onchange="previewImage();" placeholder="Enter file_name" >
+                                                                                            <input type="file" class="form-control" name="file_name" id="image-source<?php echo $banner['id']; ?>" onchange="previewImageList<?php echo $banner['id']; ?>();" placeholder="Enter file_name" value="<?php echo $banner['id']; ?>">
                                                                                         </div>
                                                                                         <br>
-                                                                                        <img src="../uploads/slider/<?php echo $banner['file_name']; ?>" style="width: auto;height: 200px;   padding-bottom: 10px;">
-                                                                                        <img id="image-preview" alt="image preview"/ style="width:auto;height: 200px;">
+                                                                                        <div style="width:50%;height: auto; margin:auto;">
+                                                                                            <img id="image-preview<?php echo $banner['id']; ?>" src="../uploads/banner/<?php echo $banner['file_name']; ?>" alt="image preview" style="max-width:100%;">
+                                                                                        </div>
+
                                                                                     </div>
                                                                                     <div class="modal-footer">
                                                                                         <div class="add-data-footer d-flex justify-content-around px-3 mt-2">
@@ -124,7 +126,17 @@
 
 
                                                             </td>
+                                                            <script>
+                                                                function previewImageList<?php echo $banner['id']; ?>() {
+                                                                    document.getElementById("image-preview<?php echo $banner['id']; ?>").style.display = "block";
+                                                                    var oFReader = new FileReader();
+                                                                    oFReader.readAsDataURL(document.getElementById("image-source<?php echo $banner['id']; ?>").files[0]);
 
+                                                                    oFReader.onload = function(oFREvent) {
+                                                                        document.getElementById("image-preview<?php echo $banner['id']; ?>").src = oFREvent.target.result;
+                                                                    };
+                                                                };
+                                                            </script>
 
                                                         </tr>
                                                     <?php } ?>

@@ -62,7 +62,7 @@
 
                                                         <th>No.</th>
                                                         <th>รูปภาพ</th>
-                                                      
+
                                                         <th>วันที่สร้าง</th>
                                                         <th>เครื่องมือ</th>
                                                     </tr>
@@ -74,7 +74,7 @@
                                                         <tr>
                                                             <td><?php echo $i++ ?></td>
                                                             <td><img src="../uploads/slider/<?php echo $slider['file_name'] ?>" alt="" style="width:200px"></td>
-                                                          
+
                                                             <td><?php echo $slider['created_at'] ?></td>
                                                             <td>
                                                                 <button data-toggle="modal" data-target="#exampleModala<?php echo $slider['id']; ?>" type="button" class="btn btn-warning"><i class="feather icon-edit" style="font-size: 25px;"></i>แก้ไข</button>
@@ -91,20 +91,21 @@
                                                                                         <span aria-hidden="true">&times;</span>
                                                                                     </button>
                                                                                 </div>
-                                                                                    <input type="text" name="id" value="<?php echo $slider['id']; ?>" hidden>
+                                                                                <input type="text" name="id" value="<?php echo $slider['id']; ?>" hidden>
 
                                                                                 <div class="modal-body">
-                                                                                   
 
-                                                                                   
+
+
                                                                                     <div class="col-xl-12 col-md-6 col-12 mb-1">
                                                                                         <div class="form-group">
                                                                                             <label for="helpInputTop">File name</label>
-                                                                                            <input type="file" class="form-control" name="file_name" id="image-source" onchange="previewImage();" placeholder="Enter file_name" required>
+                                                                                            <input type="file" class="form-control" name="file_name" id="image-source<?php echo $slider['id']; ?>" onchange="previewImageList<?php echo $slider['id']; ?>();" placeholder="Enter file_name" required>
                                                                                         </div>
                                                                                         <br>
-                                                                                        <img src="../uploads/slider/<?php echo $slider['file_name']; ?>" style="width: auto;height: 200px;   padding-bottom: 10px;">
-                                                                                        <img id="image-preview" alt="image preview"/ style="width:auto;height: 200px;">
+                                                                                        <div style="width:50%;height: auto; margin:auto;">
+                                                                                            <img id="image-preview<?php echo $slider['id']; ?>" src="../uploads/slider/<?php echo $slider['file_name']; ?>" alt="image preview" style="max-width:100%;">
+                                                                                        </div>
                                                                                     </div>
                                                                                     <div class="modal-footer">
                                                                                         <div class="add-data-footer d-flex justify-content-around px-3 mt-2">
@@ -120,7 +121,17 @@
 
 
                                                             </td>
+                                                            <script>
+                                                                function previewImageList<?php echo $slider['id']; ?>() {
+                                                                    document.getElementById("image-preview<?php echo $slider['id']; ?>").style.display = "block";
+                                                                    var oFReader = new FileReader();
+                                                                    oFReader.readAsDataURL(document.getElementById("image-source<?php echo $slider['id']; ?>").files[0]);
 
+                                                                    oFReader.onload = function(oFREvent) {
+                                                                        document.getElementById("image-preview<?php echo $slider['id']; ?>").src = oFREvent.target.result;
+                                                                    };
+                                                                };
+                                                            </script>
 
                                                         </tr>
                                                     <?php } ?>
@@ -153,7 +164,7 @@
 
 
                             <div class="modal-body">
-                                
+
                                 <div class="col-xl-12 col-md-6 col-12 mb-1">
                                     <div class="form-group">
                                         <label for="helpInputTop">File name</label>
