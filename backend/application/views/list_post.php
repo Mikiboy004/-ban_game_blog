@@ -197,14 +197,19 @@
 
                                                                             <div class="modal-body">
 
-                                                                                <?php $comment = $this->db->get_where('tbl_comment') ?>
+                                                                                <?php 
+                                                                                    $comments = $this->db->order_by('id','DES')->get_where('tbl_comment',['post_id' => $data['id']])->result_array(); 
+                                                                                    foreach ($comments as $comment) {
+                                                                                       $nameUser_comment = $this->db->get_where('tbl_user',['id_user' => $comment['user_id']])->row_array();
+                                                                                ?>
                                                                                 <div class="col-xl-12 col-md-6 col-12 mb-1">
                                                                                     <div class="form-group">
-                                                                                        <label for="helpInputTop">ความคิดเห็น</label>
+                                                                                        <label for="helpInputTop">ความคิดเห็นจาก <?php echo $nameUser_comment['username']; ?> เมื่อวันที่ <?php echo thaiDate($nameUser_comment['created_at']); ?></label>
                                                                                         <textarea class="form-control" cols="30" rows="5" disabled style="background:#fff;"><?php echo $data['detail']; ?></textarea>
                                                                                     </div>
                                                                                 </div>
 
+                                                                                <?php } ?>
                                                                                 <div class="col-xl-12 col-md-6 col-12 mb-1">
                                                                                     <div class="form-group">
                                                                                         <label for="helpInputTop">สถานะ</label>
