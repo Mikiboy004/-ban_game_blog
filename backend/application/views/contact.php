@@ -26,8 +26,7 @@
                             <h2 class="content-header-title float-left mb-0">ติดต่อเรา</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="Dashboard">Dashboard</a>
-                                    </li>
+                                    
                                     <li class="breadcrumb-item active">ติดต่อเรา
                                     </li>
                                 </ol>
