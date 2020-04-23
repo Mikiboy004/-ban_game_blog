@@ -41,7 +41,7 @@ class Banner_controller extends CI_Controller
                 $gamber     = $this->upload->data();
                 $data = array(
 
-                  
+                    'link'           => $this->input->post('link'),
                     'file_name'     => $gamber['file_name'] ,
                     'created_at'     => date('Y-m-d H:i:s') ,
                   
@@ -88,7 +88,7 @@ class Banner_controller extends CI_Controller
                 $data = array(
 
 
-                   
+                    'link'           => $this->input->post('link'),
                     'file_name'     => $gamber['file_name'] ,
                     'updated_at'     => date('Y-m-d H:i:s')
                   

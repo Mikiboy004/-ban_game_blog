@@ -62,7 +62,7 @@
 
                                                         <th>No.</th>
                                                         <th>รูปภาพ</th>
-                                                      
+                                                        <th>ลิงค์</th>
                                                         <th>วันที่สร้าง</th>
                                                         <th>เครื่องมือ</th>
                                                     </tr>
@@ -74,7 +74,7 @@
                                                         <tr>
                                                             <td><?php echo $i++ ?></td>
                                                             <td><img src="../uploads/banner/<?php echo $banner['file_name'] ?>" alt="" style="width:200px"></td>
-                                                          
+                                                            <td></td>
                                                             <td><?php echo $banner['created_at'] ?></td>
                                                             <td>
                                                                 <button data-toggle="modal" data-target="#exampleModala<?php echo $banner['id']; ?>" type="button" class="btn btn-warning"><i class="feather icon-edit" style="font-size: 25px;"></i>แก้ไข</button>
@@ -91,16 +91,20 @@
                                                                                         <span aria-hidden="true">&times;</span>
                                                                                     </button>
                                                                                 </div>
-                                                                                    <input type="text" name="id" value="<?php echo $banner['id']; ?>" hidden>
+                                                                                <input type="text" name="id" value="<?php echo $banner['id']; ?>" hidden>
 
                                                                                 <div class="modal-body">
-                                                                                   
 
-                                                                                   
+
+
                                                                                     <div class="col-xl-12 col-md-6 col-12 mb-1">
                                                                                         <div class="form-group">
+                                                                                            <label for="helpInputTop">ลิงค์</label>
+                                                                                            <input type="text" class="form-control" name="link" placeholder="Enter Link" required>
+                                                                                        </div>
+                                                                                        <div class="form-group">
                                                                                             <label for="helpInputTop">File name</label>
-                                                                                            <input type="file" class="form-control" name="file_name" id="image-source" onchange="previewImage();" placeholder="Enter file_name" required>
+                                                                                            <input type="file" class="form-control" name="file_name" id="image-source" onchange="previewImage();" placeholder="Enter file_name" >
                                                                                         </div>
                                                                                         <br>
                                                                                         <img src="../uploads/slider/<?php echo $banner['file_name']; ?>" style="width: auto;height: 200px;   padding-bottom: 10px;">
@@ -153,8 +157,12 @@
 
 
                             <div class="modal-body">
-                                
+
                                 <div class="col-xl-12 col-md-6 col-12 mb-1">
+                                    <div class="form-group">
+                                        <label for="helpInputTop">ลิงค์</label>
+                                        <input type="text" class="form-control" name="link" placeholder="Enter Link" required>
+                                    </div>
                                     <div class="form-group">
                                         <label for="helpInputTop">File name</label>
                                         <input type="file" class="form-control" name="file_name" id="image-sourcecate" onchange="previewImagecate();" placeholder="Enter file_name" required>
