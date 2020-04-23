@@ -27,10 +27,10 @@
             </li>  
                 <?php } ?>
 
-             <li class="nav-item <?php if ($this->uri->segment(1) == "List-Order") {
+             <li class="nav-item <?php if ($this->uri->segment(1) == "List-Post") {
                                                 echo 'active';
                                             } ?>">
-                 <a href="List-Order"><i class="feather icon-copy"></i><span data-i18n="List-Order">โพสทั้งหมด</span></a>
+                 <a href="List-Post"><i class="feather icon-copy"></i><span data-i18n="List-Post">โพสทั้งหมด</span></a>
             </li>
 
             <li class="nav-item <?php if ($this->uri->segment(1) == "List-slider") {
@@ -47,7 +47,7 @@
                 <li class="nav-item <?php if ($this->uri->segment(1) == "List-Contact") {
                                                 echo 'active';
                                             } ?>">
-                 <a href="List-Contact"><i class="feather icon-home"></i><span data-i18n="Dashboard">Contact</span></a>
+                 <a href="List-Contact"><i class="feather icon-home"></i><span data-i18n="Dashboard">ติดต่อเรา</span></a>
             </li>
 
 

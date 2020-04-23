@@ -119,7 +119,7 @@
 											echo 'current';
 										} ?>">
 								<a href="index">
-									<div>หน้าแรก</div>
+									<div><i class="icon-news"></i> หน้าแรก</div>
 								</a>
 							</li>
 							<?php if (!empty($user)) { ?>
@@ -127,7 +127,7 @@
 												echo 'current';
 											} ?>">
 									<a href="blog_post">
-										<div>โพสบล็อค</div>
+										<div><i class="icon-line2-note"></i>โพสบล็อค</div>
 									</a>
 								</li>
 							<?php } ?>
@@ -135,7 +135,7 @@
 											echo 'current';
 										} ?>">
 								<a href="blacklist">
-									<div>รายชื่อคนโกงทั้งหมด</div>
+									<div><i class="icon-user-secret"></i> รายชื่อคนโกงทั้งหมด</div>
 								</a>
 							</li>
 
@@ -143,7 +143,7 @@
 											echo 'current';
 										} ?>">
 								<a href="contact">
-									<div>ติดต่อเรา</div>
+									<div><i class="icon-line-mail"></i> ติดต่อเรา</div>
 								</a>
 							</li>
 							<?php if ($this->session->userdata('username') == "") { ?>
@@ -151,7 +151,7 @@
 												echo 'current';
 											} ?>">
 									<a href="login">
-										<div>เข้าสู่ระบบ</div>
+										<div><i class="icon-line2-login"></i> เข้าสู่ระบบ</div>
 									</a>
 								</li>
 							<?php } ?>
@@ -164,13 +164,17 @@
 										<div> | <i class="icon-user"></i><?= $user['first_name'] . ' ' . $user['last_name']; ?> <i class="icon-chevron-down1"></i></div>
 									</a>
 									<ul>
-										<li>
+										<li class="<?php if ($this->uri->segment(1) == "profile") {
+														echo 'current';
+													} ?>">
 											<a href="profile">
 												<div>ข้อมูลส่วนตัว</div>
 											</a>
 
 										</li>
-										<li>
+										<li class="<?php if ($this->uri->segment(1) == "profile_post") {
+														echo 'current';
+													} ?>">
 											<a href="profile_post">
 												<div>ประวัติรายการโพส</div>
 											</a>

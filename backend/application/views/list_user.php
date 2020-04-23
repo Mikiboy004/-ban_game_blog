@@ -64,7 +64,7 @@
                                                         <th>No.</th>
                                                         <th>ชื่อผู้ใช้งาน</th>
                                                         <th>อีเมล</th>
-                                                        <th>เบอร์โทรศัพท์ติดต่อ</th>
+                                                        
                                                         <th>วันที่-เวลาที่เป็นสมาชิก</th>
                                                         <th>ข้อมูลสมาชิก</th>
                                                     </tr>
@@ -77,7 +77,7 @@
                                                             <td><?php echo $i++ ?></td>
                                                             <td><?php echo $data['username']; ?></td>
                                                             <td><?php echo $data['email']; ?></td>
-                                                            <td><?php echo $data['tel']; ?></td>
+                                                            
                                                             <td><?php echo $data['created_at']; ?></td>
                                                             <td>
                                                                 <button data-toggle="modal" data-target="#exampleModala<?php echo $data['id_user']; ?>" type="button" class="btn btn-primary">
@@ -117,26 +117,7 @@
                                                                                     </div>
                                                                                 </div>
 
-                                                                                <div class="col-xl-12 col-md-6 col-12 mb-1">
-                                                                                    <div class="form-group">
-                                                                                        <label for="helpInputTop">รหัสบัตรประชาชน</label>
-                                                                                        <div class="form-control"><?php echo $data['id_card']; ?></div>
-                                                                                    </div>
-                                                                                </div>
-
-                                                                                <div class="col-xl-12 col-md-6 col-12 mb-1">
-                                                                                    <div class="form-group">
-                                                                                        <label for="helpInputTop">ที่อยู่</label>
-                                                                                        <textarea class="form-control" cols="30" rows="10" disabled style="background:#fff;"><?php echo $data['id_card']; ?></textarea>
-                                                                                    </div>
-                                                                                </div>
-
-                                                                                <div class="col-xl-12 col-md-6 col-12 mb-1">
-                                                                                    <div class="form-group">
-                                                                                        <label for="helpInputTop">วันเกิด</label>
-                                                                                        <div class="form-control"><?php echo $data['birthday']; ?></div>
-                                                                                    </div>
-                                                                                </div>
+                                                                    
 
                                                                                 <div class="col-xl-12 col-md-6 col-12 mb-1">
                                                                                     <div class="form-group">
@@ -145,12 +126,7 @@
                                                                                     </div>
                                                                                 </div>
 
-                                                                                <div class="col-xl-12 col-md-6 col-12 mb-1">
-                                                                                    <div class="form-group">
-                                                                                        <label for="helpInputTop">ไอดีไลน์</label>
-                                                                                        <div class="form-control"><?php echo $data['line_id']; ?></div>
-                                                                                    </div>
-                                                                                </div>
+                                                                               
 
                                                                                 <div class="col-xl-12 col-md-6 col-12 mb-1">
                                                                                     <div class="form-group">

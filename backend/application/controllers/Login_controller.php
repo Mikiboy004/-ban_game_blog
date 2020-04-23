@@ -13,7 +13,7 @@ class Login_controller extends CI_Controller
     public function login()
     {
         if (!empty($this->session->userdata('username'))) {
-            redirect('Dashboard');
+            redirect('List-user');
         } else {
             $this->load->view('login');
         }
@@ -38,7 +38,7 @@ class Login_controller extends CI_Controller
             );
             $this->db->insert('tbl_session', $checkSession);
             $this->session->set_flashdata('success_login', TRUE);
-            redirect('List-admin');
+            redirect('List-user');
         } else {
             $this->session->set_flashdata('fail_login', TRUE);
             redirect('Login');
