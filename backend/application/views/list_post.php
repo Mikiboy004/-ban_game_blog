@@ -14,6 +14,7 @@
     <?php include('option/begin_menu.php'); ?>
     <?php include('option/menu.php'); ?>
 
+
     <!-- BEGIN: Content-->
     <div class="app-content content">
         <div class="content-overlay"></div>
@@ -120,12 +121,23 @@
                                                                                     </div>
                                                                                 </div>
 
+
+
                                                                                 <div class="col-xl-12 col-md-6 col-12 mb-1">
                                                                                     <div class="form-group">
                                                                                         <label for="helpInputTop">รายละเอียด</label>
-                                                                                        <textarea class="form-control" cols="30" rows="10" disabled style="background:#fff;"><?php echo $data['detail']; ?></textarea>
+                                                                                        <textarea class="form-control" id="editor1<?php echo $data['id']; ?>" cols="30" rows="10" disabled style="background:#fff;"><?php echo $data['detail']; ?></textarea>
                                                                                     </div>
                                                                                 </div>
+
+                                                                                <script src="../public/assets/front-end/ckeditor/ckeditor.js"></script>
+                                                                                <script>
+                                                                                    // Replace the <textarea id="editor1"> with a CKEditor
+                                                                                    // instance, using default configuration.
+                                                                                    CKEDITOR.replace('editor1<?php echo $data['id']; ?>', {
+                                                                                        height: 300
+                                                                                    });
+                                                                                </script>
 
                                                                                 <div class="col-xl-12 col-md-6 col-12 mb-1">
                                                                                     <div class="form-group">
@@ -148,12 +160,12 @@
                                                                                         <label for="helpInputTop">สถานะ</label>
                                                                                         <div style="font-size: 18px; height:auto;">
                                                                                             <a href="change_statusPost?id=<?php echo $data['id']; ?>&status=1" style="display: inline-block;">
-                                                                                                <button type="button" class="btn btn-success"><i class="fa fa-check-circle"></i> 
-                                                                                                อนุมัติ
+                                                                                                <button type="button" class="btn btn-success"><i class="fa fa-check-circle"></i>
+                                                                                                    อนุมัติ
                                                                                                 </button>
                                                                                             </a>
                                                                                             <a href="change_statusPost?id=<?php echo $data['id']; ?>&status=2" style="display: inline-block;">
-                                                                                                <button type="button" class="btn btn-warning"><i class="fa fa-times-circle"></i>  
+                                                                                                <button type="button" class="btn btn-warning"><i class="fa fa-times-circle"></i>
                                                                                                     ไม่อนุมัติ
                                                                                                 </button>
                                                                                             </a>
@@ -197,24 +209,35 @@
 
                                                                             <div class="modal-body">
 
-                                                                                <?php 
-                                                                                    $comments = $this->db->order_by('id','DES')->get_where('tbl_comment',['post_id' => $data['id']])->result_array(); 
-                                                                                    foreach ($comments as $comment) {
-                                                                                       $nameUser_comment = $this->db->get_where('tbl_user',['id_user' => $comment['user_id']])->row_array();
+                                                                                <?php
+                                                                                $comments = $this->db->order_by('id', 'DES')->get_where('tbl_comment', ['post_id' => $data['id']])->result_array();
+                                                                                foreach ($comments as $comment) {
+                                                                                    $nameUser_comment = $this->db->get_where('tbl_user', ['id_user' => $comment['user_id']])->row_array();
                                                                                 ?>
-                                                                                <div class="col-xl-12 col-md-6 col-12 mb-1">
-                                                                                    <div class="form-group">
-                                                                                        <label for="helpInputTop">ความคิดเห็นจาก <?php echo $nameUser_comment['username']; ?> เมื่อวันที่ <?php echo thaiDate($nameUser_comment['created_at']); ?></label>
-                                                                                        <textarea class="form-control" cols="30" rows="5" disabled style="background:#fff;"><?php echo $data['detail']; ?></textarea>
-                                                                                    </div>
-                                                                                </div>
 
+
+                                                                                    <div class="col-xl-12 col-md-6 col-12 mb-1">
+                                                                                        <div class="form-group">
+                                                                                            <label for="helpInputTop">ความคิดเห็นจาก <?php echo $nameUser_comment['username']; ?> เมื่อวันที่ <?php echo thaiDate($nameUser_comment['created_at']); ?></label>
+                                                                                            <textarea class="form-control" id="editor_comment1<?php echo $comment['id']; ?>" cols="30" rows="5" disabled style="background:#fff;"><?php echo $comment['comment']; ?></textarea>
+
+                                                                                        </div>
+                                                                                    </div>
+                                                                                    <script src="../public/assets/front-end/ckeditor/ckeditor.js"></script>
+                                                                                    <script>
+                                                                                        // Replace the <textarea id="editor1"> with a CKEditor
+                                                                                        // instance, using default configuration.
+                                                                                        CKEDITOR.replace('editor_comment1<?php echo $comment['id']; ?>', {
+                                                                                            height: 300
+                                                                                        });
+                                                                                    </script>
                                                                                 <?php } ?>
+
                                                                                 <div class="col-xl-12 col-md-6 col-12 mb-1">
                                                                                     <div class="form-group">
                                                                                         <label for="helpInputTop">สถานะ</label>
                                                                                         <div style="font-size: 18px; height:auto;">
-                                                                                            
+
                                                                                             <button onclick="confirmalertdelete_comment('<?php echo $data['id']; ?>')" class="btn btn-danger " type="button" aria-haspopup="true" aria-expanded="false"><i class="feather icon-trash"></i>
                                                                                                 ลบ
                                                                                             </button>
