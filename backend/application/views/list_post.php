@@ -23,12 +23,12 @@
                 <div class="content-header-left col-md-9 col-12 mb-2">
                     <div class="row breadcrumbs-top">
                         <div class="col-12">
-                            <h2 class="content-header-title float-left mb-0">โพสทั้งหมด</h2>
+                            <h2 class="content-header-title float-left mb-0">User</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="Dashboard">Dashboard</a>
                                     </li>
-                                    <li class="breadcrumb-item active">โพสทั้งหมด
+                                    <li class="breadcrumb-item active">User
                                     </li>
                                 </ol>
                             </div>
@@ -82,13 +82,13 @@
                                                             <td><?php echo $nameUser['first_name'] . ' ' . $nameUser['last_name']; ?></td>
                                                             <td><?php echo $data['date_post']; ?></td>
                                                             <td style="font-size: 18px;"><?php if ($data['status'] == 0) {
-                                                                                                echo '<span class="badge badge-warning">รอตรวจสอบ</span>';
+                                                                                                echo '<span class="badge badge-primary">รอตรวจสอบ</span>';
                                                                                             } elseif ($data['status'] == 1) {
                                                                                                 echo '<span class="badge badge-success">อนุมัติ</span>';
-                                                                                            }else{
-                                                                                                echo '<span class="badge badge-danger">ไม่อนุมัติ</span>';
-                                                                                            }   
-                                                                                                ?></td>
+                                                                                            } else {
+                                                                                                echo '<span class="badge badge-warning">ไม่อนุมัติ</span>';
+                                                                                            }
+                                                                                            ?></td>
                                                             <td>
                                                                 <button data-toggle="modal" data-target="#exampleModala<?php echo $data['id']; ?>" type="button" class="btn btn-primary">
                                                                     <i class="fa fa-id-card"></i> ดูข้อมูล
@@ -148,33 +148,23 @@
                                                                                         <label for="helpInputTop">สถานะ</label>
                                                                                         <div style="font-size: 18px; height:auto;">
                                                                                             <a href="change_statusPost?id=<?php echo $data['id']; ?>&status=1" style="display: inline-block;">
-                                                                                                <button  type="button" class="btn btn-success">
-                                                                                                    อนุมัติ
+                                                                                                <button type="button" class="btn btn-success"><i class="fa fa-check-circle"></i> 
+                                                                                                อนุมัติ
                                                                                                 </button>
                                                                                             </a>
                                                                                             <a href="change_statusPost?id=<?php echo $data['id']; ?>&status=2" style="display: inline-block;">
-                                                                                                <button  type="button" class="btn btn-warning">
+                                                                                                <button type="button" class="btn btn-warning"><i class="fa fa-times-circle"></i>  
                                                                                                     ไม่อนุมัติ
                                                                                                 </button>
                                                                                             </a>
-                                                                                            
+                                                                                            <button onclick="confirmalertdelete_Post('<?php echo $data['id']; ?>')" class="btn btn-danger " type="button" aria-haspopup="true" aria-expanded="false"><i class="feather icon-trash"></i>
+                                                                                                ลบ
+                                                                                            </button>
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
 
-                                                                                <div class="col-xl-12 col-md-6 col-12 mb-1">
-                                                                                    <div class="form-group">
-                                                                                        <label for="helpInputTop">ลบโพส</label>
-                                                                                        <div style="font-size: 18px; height:auto;">
-                                                                                           
-                                                                                            <a href="deletePost?id=<?php echo $data['id']; ?>" onclick="return confirm('ท่านต้องการลบโพสนี้ใช่หรือไม่ ??');" style="display: inline-block;">
-                                                                                                <button  type="button" class="btn btn-danger">
-                                                                                                    ลบโพส
-                                                                                                </button>
-                                                                                            </a>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </div>
+
 
                                                                                 <div class="modal-footer">
                                                                                     <div class="add-data-footer d-flex justify-content-around px-3 mt-2">
@@ -191,7 +181,7 @@
 
                                                             <td>
                                                                 <button data-toggle="modal" data-target="#exampleModalComment<?php echo $data['id']; ?>" type="button" class="btn btn-primary">
-                                                                    <i class="fa fa-comment"></i> ดูความคิดเห็น
+                                                                    <i class="fa fa-id-card"></i> ดูความคิดเห็น
                                                                 </button>
                                                                 <div class="modal fade" id="exampleModalComment<?php echo $data['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                                                     <div class="modal-dialog" role="document">
@@ -207,19 +197,27 @@
 
                                                                             <div class="modal-body">
 
-                                                                                <?php 
-                                                                                    $comments = $this->db->get_where('tbl_comment',['post_id' => $data['id']])->result_array(); 
-                                                                                    foreach ($comments as $comment) {
-                                                                                    $user_comment = $this->db->get_where('tbl_user',['user_id' => $comment['user_id']])->row_array(); 
-                                                                                ?>
+                                                                                <?php $comment = $this->db->get_where('tbl_comment') ?>
                                                                                 <div class="col-xl-12 col-md-6 col-12 mb-1">
                                                                                     <div class="form-group">
-                                                                                        <label for="helpInputTop">ความคิดเห็นจาก <?php echo $user_comment['username']; ?> วันที่-เวลาที่โพส <?php echo $comment['created_at'];?></label>
-                                                                                        <textarea class="form-control" cols="30" rows="5" disabled style="background:#fff;"><?php echo $comment['comment']; ?></textarea>
+                                                                                        <label for="helpInputTop">ความคิดเห็น</label>
+                                                                                        <textarea class="form-control" cols="30" rows="5" disabled style="background:#fff;"><?php echo $data['detail']; ?></textarea>
                                                                                     </div>
                                                                                 </div>
 
-                                                                                <?php } ?>
+                                                                                <div class="col-xl-12 col-md-6 col-12 mb-1">
+                                                                                    <div class="form-group">
+                                                                                        <label for="helpInputTop">สถานะ</label>
+                                                                                        <div style="font-size: 18px; height:auto;">
+                                                                                            
+                                                                                            <button onclick="confirmalertdelete_comment('<?php echo $data['id']; ?>')" class="btn btn-danger " type="button" aria-haspopup="true" aria-expanded="false"><i class="feather icon-trash"></i>
+                                                                                                ลบ
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </div>
+
+
 
 
 

@@ -139,7 +139,7 @@
     function confirmalertdelete_comment(data3) {
 
         swal({
-            title: "แน่ใจใช่หรือไม่ที่จะลบโพสที่ไม่เหมาสม",
+            title: "แน่ใจใช่หรือไม่ที่จะลบความคิดเห็นที่ไม่เหมาสม",
             text: "Are you sure you want to delete Post?",
             icon: "warning",
             buttons: true,

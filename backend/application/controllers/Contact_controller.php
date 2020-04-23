@@ -27,7 +27,7 @@ class Contact_controller extends CI_Controller
             $this->load->view('list_contact_us', $data);
         } else {
             $this->session->set_flashdata('dont_click', TRUE);
-            redirect('Dashboard');
+            redirect('Login');
         }
     }
 
