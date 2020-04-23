@@ -78,7 +78,7 @@
                                                             <td><?php echo $data['username']; ?></td>
                                                             <td><?php echo $data['email']; ?></td>
                                                             
-                                                            <td><?php echo $data['created_at']; ?></td>
+                                                            <td><?php echo thaiDate($data['created_at']); ?></td>
                                                             <td>
                                                                 <button data-toggle="modal" data-target="#exampleModala<?php echo $data['id_user']; ?>" type="button" class="btn btn-primary">
                                                                     <i class="fa fa-id-card"></i> ดูข้อมูล

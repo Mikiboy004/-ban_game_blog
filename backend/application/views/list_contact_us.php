@@ -78,7 +78,7 @@
                                                             <td><?php echo $i++ ?></td>
                                                             <td><?php echo $contact_us['topic']; ?></td>
                                                             <td><?php echo $contact_us['message']; ?></td>
-                                                            <td><?php echo $contact_us['create_times']; ?></td>
+                                                            <td><?php echo thaiDate($contact_us['created_at']); ?></td>
                                                             <td> <button data-toggle="modal" data-target="#exampleModala<?php echo $contact_us['id']; ?>" type="button" class="btn btn-warning"><i class="feather icon-edit" style="font-size: 25px;"></i>แก้ไข</button>
                                                                 <button onclick="confirmalertdelete_contact_us('<?php echo $contact_us['id']; ?>')" class="btn btn-danger " type="button" aria-haspopup="true" aria-expanded="false"><i class="feather icon-trash" style="font-size: 25px;"></i>
                                                                     ลบ

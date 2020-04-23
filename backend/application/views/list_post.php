@@ -80,7 +80,7 @@
                                                             <td><?php echo $i++ ?></td>
                                                             <td><?php echo $data['topic']; ?></td>
                                                             <td><?php echo $nameUser['first_name'] . ' ' . $nameUser['last_name']; ?></td>
-                                                            <td><?php echo $data['date_post']; ?></td>
+                                                            <td><?php echo thaiDate($data['date_post']); ?></td>
                                                             <td style="font-size: 18px;"><?php if ($data['status'] == 0) {
                                                                                                 echo '<span class="badge badge-warning">รอตรวจสอบ</span>';
                                                                                             } elseif ($data['status'] == 1) {
@@ -137,7 +137,7 @@
                                                                                 <div class="col-xl-12 col-md-6 col-12 mb-1">
                                                                                     <div class="form-group">
                                                                                         <label for="helpInputTop">วันที่-เวลาที่โพส</label>
-                                                                                        <div class="form-control"><?php echo $data['date_post']; ?></div>
+                                                                                        <div class="form-control"><?php echo thaiDate($data['date_post']); ?></div>
                                                                                     </div>
                                                                                 </div>
 
@@ -214,7 +214,7 @@
                                                                                 ?>
                                                                                 <div class="col-xl-12 col-md-6 col-12 mb-1">
                                                                                     <div class="form-group">
-                                                                                        <label for="helpInputTop">ความคิดเห็นจาก <?php echo $user_comment['username']; ?> วันที่-เวลาที่โพส <?php echo $comment['created_at'];?></label>
+                                                                                        <label for="helpInputTop">ความคิดเห็นจาก <?php echo $user_comment['username']; ?> วันที่-เวลาที่โพส <?php echo thaiDate($comment['created_at']);?></label>
                                                                                         <textarea class="form-control" cols="30" rows="5" disabled style="background:#fff;"><?php echo $comment['comment']; ?></textarea>
                                                                                     </div>
                                                                                 </div>

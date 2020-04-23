@@ -79,7 +79,7 @@
                                                             <td><?php echo $data['first_name'] . ' ' . $data['last_name']; ?></td>
                                                             <td><?php echo $data['email']; ?></td>
                                                             <td><?php echo $data['tel']; ?></td>
-                                                            <td><?php echo $data['created_at']; ?></td>
+                                                            <td><?php echo thaiDate($data['created_at']); ?></td>
                                                             <td>
                                                                 <button data-toggle="modal" data-target="#exampleModala<?php echo $data['id_contact']; ?>" type="button" class="btn btn-primary">
                                                                     <i class="fa fa-id-card"></i> ดูข้อมูล
@@ -123,7 +123,7 @@
                                                                                 <div class="col-xl-12 col-md-6 col-12 mb-1">
                                                                                     <div class="form-group">
                                                                                         <label for="helpInputTop">วันที่-เวลาที่โพส</label>
-                                                                                        <div class="form-control"><?php echo $data['created_at']; ?></div>
+                                                                                        <div class="form-control"><?php echo thaiDate($data['created_at']); ?></div>
                                                                                     </div>
                                                                                 </div>
 

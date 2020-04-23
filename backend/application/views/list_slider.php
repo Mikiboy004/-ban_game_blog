@@ -75,7 +75,7 @@
                                                             <td><?php echo $i++ ?></td>
                                                             <td><img src="../uploads/slider/<?php echo $slider['file_name'] ?>" alt="" style="width:200px"></td>
 
-                                                            <td><?php echo $slider['created_at'] ?></td>
+                                                            <td><?php echo thaiDate($slider['created_at']); ?></td>
                                                             <td>
                                                                 <button data-toggle="modal" data-target="#exampleModala<?php echo $slider['id']; ?>" type="button" class="btn btn-warning"><i class="feather icon-edit" style="font-size: 25px;"></i>แก้ไข</button>
                                                                 <button onclick="confirmalertdelete('<?php echo $slider['id']; ?>')" class="btn btn-danger " type="button" aria-haspopup="true" aria-expanded="false"><i class="feather icon-trash" style="font-size: 25px;"></i>
