@@ -20,3 +20,4 @@ $route['contact']           = 'front-end/Contact_ctr/index';
 $route['contact_add']       = 'front-end/Contact_ctr/contact_add';
 $route['profile']           = 'front-end/Profile_ctr/profile';
 $route['edit_profile']      = 'front-end/Profile_ctr/edit_profile';
+$route['edit_password']     = 'front-end/Profile_ctr/edit_password';
