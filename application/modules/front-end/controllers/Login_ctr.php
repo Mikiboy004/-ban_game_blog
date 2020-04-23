@@ -55,15 +55,7 @@ class Login_ctr extends CI_Controller
 
         $first_name = $this->input->post('first_name');
         $last_name = $this->input->post('last_name');
-        $id_card = $this->input->post('id_card');
-        $address = $this->input->post('address');
-        $birthday = $this->input->post('birthday');
-        $birthday = explode('/',$birthday);
         $email = $this->input->post('email');
-        $line_id = $this->input->post('line_id');
-        if ($line_id == '') {
-            $line_id = null;
-        }
         $tel = $this->input->post('tel');
         $username = $this->input->post('username');
         $password = $this->input->post('password');
@@ -75,13 +67,7 @@ class Login_ctr extends CI_Controller
             $result['message'] = 'password not match';
             exit();
         }
-        $checkId_card = $this->db->get_where('tbl_user', ['id_card' => $id_card])->row_array();
-        if (!empty($checkId_card)) {
-            $result['successfully'] = false;
-            $result['message'] = 'unavailable id card';
-            echo json_encode($result);
-            exit();
-        }
+       
         $checkEmail = $this->db->get_where('tbl_user', ['email' => $email])->row_array();
         if (!empty($checkEmail)) {
             $result['successfully'] = false;
@@ -115,12 +101,8 @@ class Login_ctr extends CI_Controller
                 $gamber     = $this->upload->data();
                 $data = [
                     'first_name' =>  $first_name,
-                    'last_name'  => $last_name,
-                    'id_card'    => $id_card,
-                    'address'    => $address,
-                    'birthday'   => $birthday[2].'-'.$birthday[1].'-'.$birthday[0],
+                    'last_name'  => $last_name, 
                     'email'      => $email,
-                    'line_id'    => $line_id,
                     'tel'        => $tel,
                     'username'   => $username,
                     'password'   => md5($confirm_repassword),

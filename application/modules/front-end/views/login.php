@@ -74,30 +74,12 @@
                                         <input type="text" id="register-form-name" name="last_name" value="" class="form-control" required />
                                     </div>
 
-                                    <div class="col_full">
-                                        <label for="register-form-name">รหัสบัตรประชาชน: <span style="color:red;">*</span></label>
-                                        <input type="text" id="register-form-name" name="id_card" value="" class="form-control" required />
-                                    </div>
-
-                                    <div class="col_full">
-                                        <label for="register-form-name">ที่อยู่: <span style="color:red;">*</span></label>
-                                        <textarea name="address" class="form-control" required id="" cols="30" rows="5"></textarea>
-                                    </div>
-
-                                    <div class="col_full travel-date-group">
-                                        <label for="register-form-name">วันเกิด: <span style="color:red;">*</span></label>
-                                        <input type="text" id="register-form-name" name="birthday" value="" class="form-control default" required />
-                                    </div>
 
                                     <div class="col_full">
                                         <label for="register-form-email">อีเมล: <span style="color:red;">*</span></label>
                                         <input type="text" id="register-form-email" name="email" value="" class="form-control" required />
                                     </div>
 
-                                    <div class="col_full">
-                                        <label for="register-form-email">ไอดีไลน์:</label>
-                                        <input type="text" id="register-form-email" name="line_id" value="" class="form-control" />
-                                    </div>
 
                                     <div class="col_full">
                                         <label for="register-form-phone">เบอร์โทรศัพท์ติดต่อ: <span style="color:red;">*</span></label>
@@ -152,20 +134,8 @@
         let last_name = $('#register-form').find('input[name="last_name"]').val();
         formUpload.append('last_name', last_name);
 
-        let id_card = $('#register-form').find('input[name="id_card"]').val();
-        formUpload.append('id_card', id_card);
-
-        let address = $('#register-form').find('textarea[name="address"]').val();
-        formUpload.append('address', address);
-
-        let birthday = $('#register-form').find('input[name="birthday"]').val();
-        formUpload.append('birthday', birthday);
-
         let email = $('#register-form').find('input[name="email"]').val();
         formUpload.append('email', email);
-
-        let line_id = $('#register-form').find('input[name="line_id"]').val();
-        formUpload.append('line_id', line_id);
 
         let tel = $('#register-form').find('input[name="tel"]').val();
         formUpload.append('tel', tel);
@@ -207,14 +177,6 @@
                             });
                         }
 
-                        if (result.message == "unavailable id card") {
-                            Swal.fire({
-                                position: 'start-end',
-                                icon: 'error',
-                                title: 'มีรหัสบัตรประชาชนนี้อยู่ในระบบแล้ว กรุณาใช้รหัสบัตรประชาชนใหม่!!',
-                                showConfirmButton: true,
-                            });
-                        }
 
                         if (result.message == "unavailable email") {
                             Swal.fire({

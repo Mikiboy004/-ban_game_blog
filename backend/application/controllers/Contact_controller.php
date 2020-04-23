@@ -9,11 +9,11 @@ class Contact_controller extends CI_Controller
         $admin = $this->db->get_where('tbl_admin', ['username' => $this->session->userdata('username'), 'status' => 1])->row_array();
         $data['admin'] = $admin;
         if ($admin == true) {
-            $data['contact'] = $this->db->get('tbl_contact')->result_array();
+            $data['contact'] = $this->db->order_by('id_contact','DESC')->get('tbl_contact')->result_array();
             $this->load->view('contact', $data);
         } else {
             $this->session->set_flashdata('dont_click', TRUE);
-            redirect('Dashboard');
+            redirect('Login');
         }
     }
 

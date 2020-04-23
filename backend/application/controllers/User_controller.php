@@ -10,11 +10,11 @@ class User_controller extends CI_Controller
         $admin = $this->db->get_where('tbl_admin', ['username' => $this->session->userdata('username'), 'status' => 1])->row_array();
         $data['admin'] = $admin;
         if ($admin == true) {
-            $data['user'] = $this->db->get('tbl_user')->result_array();
+            $data['user'] = $this->db->order_by('id_user','DESC')->get('tbl_user')->result_array();
             $this->load->view('list_user', $data);
         } else {
             $this->session->set_flashdata('dont_click', TRUE);
-            redirect('Dashboard');
+            redirect('Login');
         }
     }
 

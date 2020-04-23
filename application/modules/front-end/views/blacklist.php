@@ -1,128 +1,40 @@
 		<!-- Content
 		============================================= -->
 		<section id="content">
-			<div class="section">
+			<div class="section notopmargin notopborder">
 				<div class="container clearfix">
-
-					<div class="heading-block topmargin-sm center">
+					<div class="heading-block center nomargin">
 						<h3>รายชื่อคนโกงทั้งหมด</h3>
 					</div>
-
-					<div class="row">
-
-						<div class="col-lg-3 col-md-6 bottommargin">
-
-							<div class="team">
-								<div class="team-image">
-									<img src="public/assets/front-end/images/team/3.jpg" alt="John Doe">
-								</div>
-								<div class="team-desc team-desc-bg">
-									<div class="team-title">
-										<h4>John Doe</h4><span>CEO</span>
-									</div>
-									<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
-										<i class="icon-facebook"></i>
-										<i class="icon-facebook"></i>
-									</a>
-									<a href="#" class="social-icon inline-block si-small si-light si-rounded si-twitter">
-										<i class="icon-twitter"></i>
-										<i class="icon-twitter"></i>
-									</a>
-									<a href="#" class="social-icon inline-block si-small si-light si-rounded si-gplus">
-										<i class="icon-gplus"></i>
-										<i class="icon-gplus"></i>
-									</a>
-								</div>
-							</div>
-
-						</div>
-
-						<div class="col-lg-3 col-md-6 bottommargin">
-
-							<div class="team">
-								<div class="team-image">
-									<img src="public/assets/front-end/images/team/2.jpg" alt="Josh Clark">
-								</div>
-								<div class="team-desc team-desc-bg">
-									<div class="team-title">
-										<h4>Josh Clark</h4><span>Co-Founder</span>
-									</div>
-									<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
-										<i class="icon-facebook"></i>
-										<i class="icon-facebook"></i>
-									</a>
-									<a href="#" class="social-icon inline-block si-small si-light si-rounded si-twitter">
-										<i class="icon-twitter"></i>
-										<i class="icon-twitter"></i>
-									</a>
-									<a href="#" class="social-icon inline-block si-small si-light si-rounded si-gplus">
-										<i class="icon-gplus"></i>
-										<i class="icon-gplus"></i>
-									</a>
-								</div>
-							</div>
-
-						</div>
-
-						<div class="col-lg-3 col-md-6 bottommargin">
-
-							<div class="team">
-								<div class="team-image">
-									<img src="public/assets/front-end/images/team/8.jpg" alt="Mary Jane">
-								</div>
-								<div class="team-desc team-desc-bg">
-									<div class="team-title">
-										<h4>Mary Jane</h4><span>Sales</span>
-									</div>
-									<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
-										<i class="icon-facebook"></i>
-										<i class="icon-facebook"></i>
-									</a>
-									<a href="#" class="social-icon inline-block si-small si-light si-rounded si-twitter">
-										<i class="icon-twitter"></i>
-										<i class="icon-twitter"></i>
-									</a>
-									<a href="#" class="social-icon inline-block si-small si-light si-rounded si-gplus">
-										<i class="icon-gplus"></i>
-										<i class="icon-gplus"></i>
-									</a>
-								</div>
-							</div>
-
-						</div>
-
-						<div class="col-lg-3 col-md-6 bottommargin">
-
-							<div class="team">
-								<div class="team-image">
-									<img src="public/assets/front-end/images/team/4.jpg" alt="Nix Maxwell">
-								</div>
-								<div class="team-desc team-desc-bg">
-									<div class="team-title">
-										<h4>Nix Maxwell</h4><span>Support</span>
-									</div>
-									<a href="#" class="social-icon inline-block si-small si-light si-rounded si-facebook">
-										<i class="icon-facebook"></i>
-										<i class="icon-facebook"></i>
-									</a>
-									<a href="#" class="social-icon inline-block si-small si-light si-rounded si-twitter">
-										<i class="icon-twitter"></i>
-										<i class="icon-twitter"></i>
-									</a>
-									<a href="#" class="social-icon inline-block si-small si-light si-rounded si-gplus">
-										<i class="icon-gplus"></i>
-										<i class="icon-gplus"></i>
-									</a>
-								</div>
-							</div>
-
-						</div>
-
-					</div>
-
 				</div>
 			</div>
 
+			<div class="container clear-bottommargin clearfix">
+				<div class="row">
+					<?php
+					foreach ($post as $post) {
+						
+					?>
+						<div class="col-lg-4 col-md-6 bottommargin">
+							<div class="ipost clearfix">
+								<div class="entry-image">
+									<a href="blog_detail?id=<?= base64_encode($post['id']); ?>"><img class="image_fade" src="uploads/post/<?= $post['file_name']; ?>" alt="Image"></a>
+								</div>
+								<div class="entry-title">
+									<h3><a href="blog_detail?id=<?= base64_encode($post['id']); ?>"><?= $post['topic']; ?></a></h3>
+								</div>
+								<ul class="entry-meta clearfix">
+									<li><i class="icon-calendar3"></i> <?= thaiDate($post['date_post']); ?></li>
+									<li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li>
+								</ul>
+								<div class="entry-content">
+									<p><?= substr($post['detail'], 0, 250); ?></p>
+								</div>
+							</div>
+						</div>
+					<?php } ?>
+				</div>
+			</div>
 
 
 

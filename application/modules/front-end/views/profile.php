@@ -41,23 +41,8 @@
                                                         <input type="text" id="register-form-name" name="last_name" value="<?= $userlist['last_name']; ?>" class="form-control" required />
                                                     </div>
                                                 </div>
-                                                <div class="row">
-                                                    <div class="col_full col-md-6 col-sm-12">
-                                                        <label for="register-form-name">รหัสบัตรประชาชน: <span style="color:red;">*</span></label>
-                                                        <input type="text" id="register-form-name" name="id_card" value="<?= $userlist['id_card']; ?>" class="form-control" required />
-                                                    </div>
-                                                    <div class="col_full col-md-6 col-sm-12 travel-date-group">
-                                                        <label for="register-form-name">วันเกิด: <span style="color:red;">*</span></label>
-                                                        <?php
-                                                        $birthdayFormat = explode('-', $userlist['birthday']);
-                                                        ?>
-                                                        <input type="text" id="register-form-name" name="birthday" value="<?= $birthdayFormat[2] . '/' . $birthdayFormat[1] . '/' . $birthdayFormat[0]; ?>" class="form-control default" required />
-                                                    </div>
-                                                </div>
-                                                <div class="col_full">
-                                                    <label for="register-form-name">ที่อยู่: <span style="color:red;">*</span></label>
-                                                    <textarea name="address" class="form-control" required id="" cols="30" rows="5"><?= $userlist['address']; ?></textarea>
-                                                </div>
+                                                
+                                                
 
 
 
@@ -66,10 +51,7 @@
                                                     <input type="text" id="register-form-email" name="email" value="<?= $userlist['email']; ?>" class="form-control" required />
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col_full col-md-6 col-sm-12">
-                                                        <label for="register-form-email">ไอดีไลน์:</label>
-                                                        <input type="text" id="register-form-email" name="line_id" value="<?= $userlist['line_id']; ?>" class="form-control" />
-                                                    </div>
+                                                    
 
                                                     <div class="col_full col-md-6 col-sm-12">
                                                         <label for="register-form-phone">เบอร์โทรศัพท์ติดต่อ: <span style="color:red;">*</span></label>

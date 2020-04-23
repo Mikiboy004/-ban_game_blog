@@ -57,6 +57,26 @@
             buttonsStyling: false,
          });
       <?php endif; ?>
+      <?php if ($this->session->flashdata('changeStatus')) : ?>
+         Swal.fire({
+            position: 'top-end',
+            type: 'success',
+            title: 'เปลี่ยนสถานะเรียบร้อยแล้ว',
+            showConfirmButton: false,
+            timer: 1500,
+            confirmButtonClass: 'btn btn-primary',
+            buttonsStyling: false,
+         });
+      <?php endif; ?>
+      <?php if ($this->session->flashdata('changeStatusFail')) : ?>
+         Swal.fire({
+            title: "Error!",
+            text: " เปลี่ยนสถานะไม่สำเร็จ กรุณาลองใหม่อีกครั้ง!!",
+            type: "error",
+            confirmButtonClass: 'btn btn-primary',
+            buttonsStyling: false,
+         });
+      <?php endif; ?>
    </script>
    <script src="assets/assets/js/sweetalert.min.js"></script>
    <script>

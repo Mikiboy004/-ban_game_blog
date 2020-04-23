@@ -11,7 +11,7 @@ class Blacklist_ctr extends CI_Controller
 
   public function index()
   {
-      $data['banner'] = $this->db->get('tbl_banner')->result_array();
+      $data['post'] = $this->db->order_by('id','DESC')->get_where('tbl_post',['status' => 1])->result_array();
       $this->load->view('option/header');
       $this->load->view('blacklist',$data);
       $this->load->view('option/footer');

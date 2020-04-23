@@ -1,7 +1,7 @@
 	<?php if ($this->uri->segment(1) != "contact" && $this->uri->segment(1) != "login" && $this->uri->segment(1) != "profile") { ?>
 		<div class="container clearfix">
 
-			<div id="oc-clients" class="owl-carousel image-carousel carousel-widget" data-margin="60" data-loop="true" data-nav="false" data-autoplay="5000" data-pagi="false" data-items-xs="2" data-items-sm="3" data-items-md="4" data-items-lg="5" data-items-xl="6">
+			<div id="oc-clients" class="owl-carousel image-carousel carousel-widget" data-margin="60" data-loop="true" data-nav="false" data-autoplay="5000" data-pagi="false" data-items-xs="2" data-items-sm="2" data-items-md="2" data-items-lg="2" data-items-xl="2">
 				<?php
 				$banner = $this->db->get('tbl_banner')->result_array();
 				foreach ($banner as $bannerDetail) { ?>
