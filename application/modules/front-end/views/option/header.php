@@ -171,7 +171,7 @@
 
 										</li>
 										<li>
-											<a href="order-history">
+											<a href="profile_post">
 												<div>ประวัติรายการโพส</div>
 											</a>
 										</li>
@@ -197,7 +197,7 @@
 
 		</header><!-- #header end -->
 
-		<?php if ($this->uri->segment(1) != "contact" && $this->uri->segment(1) != "login"  && $this->uri->segment(1) != "profile") { ?>
+		<?php if ($this->uri->segment(1) != "contact" && $this->uri->segment(1) != "login"  && $this->uri->segment(1) != "profile" && $this->uri->segment(1) != "profile_post") { ?>
 			<section id="slider" class="slider-element slider-parallax swiper_wrapper clearfix">
 
 				<div class="swiper-container swiper-parent">

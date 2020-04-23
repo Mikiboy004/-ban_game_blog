@@ -20,6 +20,16 @@ class Profile_model extends CI_Model
         return $data->row_array();
     }
 
+    function profile_post($Id)
+    {
+        $this->db->select('*');
+        $this->db->from('tbl_post');
+        $this->db->where('user_id', $Id);
+        $this->db->order_by('date_post', 'desc');
+
+        $data = $this->db->get();
+        return $data->result_array();
+    }
 }
 
 ?>

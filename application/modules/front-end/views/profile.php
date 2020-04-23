@@ -7,7 +7,7 @@
 
             <div class="row">
                 <div class="col-12 mb-3">
-                    <h5>ข้อมูลส่วนตัว</h5>
+                    <h5><a href="index">หน้าแรก</a> / ข้อมูลส่วนตัว</h5>
                     <div class="feature-box fbox-small fbox-center fbox-plain fbox-large nobottomborder">
                         <div class="card">
                             <div class="card-header text-left" style="color:#000;">ข้อมูลส่วนตัว</div>
