@@ -9,7 +9,7 @@
 				<div id="contact-form-overlay" class="clearfix">
 
 					<div class="fancy-title title-dotted-border">
-						<h3>Send us an Email</h3>
+						<h3>ติดต่อเรา</h3>
 					</div>
 
 					<div class="form-widget">

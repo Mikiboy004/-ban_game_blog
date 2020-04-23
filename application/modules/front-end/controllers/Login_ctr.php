@@ -52,6 +52,7 @@ class Login_ctr extends CI_Controller
 
     public function register()
     {
+
         $first_name = $this->input->post('first_name');
         $last_name = $this->input->post('last_name');
         $id_card = $this->input->post('id_card');
@@ -96,32 +97,50 @@ class Login_ctr extends CI_Controller
             exit();
         }
 
-        $data = [
-            'first_name' =>  $first_name,
-            'last_name'  => $last_name,
-            'id_card'    => $id_card,
-            'address'    => $address,
-            'birthday'   => $birthday[2].'-'.$birthday[1].'-'.$birthday[0],
-            'email'      => $email,
-            'line_id'    => $line_id,
-            'tel'        => $tel,
-            'username'   => $username,
-            'password'   => md5($confirm_repassword),
-            'created_at' => date('Y-m-d H:i:s'),
-            'updated_at' => date('Y-m-d H:i:s'),
-        ];
+        $this->load->library('upload');
+        // |xlsx|pdf|docx
+        $config['upload_path'] = 'uploads/user/';
+        $config['allowed_types'] = 'gif|jpg|png|jpeg';
+        $config['max_size']     = '200480';
+        $config['max_width'] = '5000';
+        $config['max_height'] = '5000';
+        $name_file = "profile-" . time();
+        $config['file_name'] = $name_file;
 
-        $success = $this->db->insert('tbl_user',$data);
-        if ($success > 0) {
-            $result['successfully'] = true;
-            $result['message'] = 'register success';
-            echo json_encode($result);
-        }else{
-            $result['successfully'] = false;
-            $result['message'] = 'register error';
-            echo json_encode($result);
+        $this->upload->initialize($config);
+
+        if ($_FILES['file_name']['name']) {
+            if ($this->upload->do_upload('file_name')) {
+
+                $gamber     = $this->upload->data();
+                $data = [
+                    'first_name' =>  $first_name,
+                    'last_name'  => $last_name,
+                    'id_card'    => $id_card,
+                    'address'    => $address,
+                    'birthday'   => $birthday[2].'-'.$birthday[1].'-'.$birthday[0],
+                    'email'      => $email,
+                    'line_id'    => $line_id,
+                    'tel'        => $tel,
+                    'username'   => $username,
+                    'password'   => md5($confirm_repassword),
+                    'created_at' => date('Y-m-d H:i:s'),
+                    'updated_at' => date('Y-m-d H:i:s'),
+                    'file_name'  => $gamber['file_name'],
+                ];
+
+                $success = $this->db->insert('tbl_user',$data);
+                if ($success > 0) {
+                    $result['successfully'] = true;
+                    $result['message'] = 'register success';
+                    echo json_encode($result);
+                }else{
+                    $result['successfully'] = false;
+                    $result['message'] = 'register error';
+                    echo json_encode($result);
+                }
+            }
         }
-
         
     }
 }

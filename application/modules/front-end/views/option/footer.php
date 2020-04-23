@@ -1,4 +1,4 @@
-	<?php if ($this->uri->segment(1) != "contact" && $this->uri->segment(1) != "login") { ?>
+	<?php if ($this->uri->segment(1) != "contact" && $this->uri->segment(1) != "login" && $this->uri->segment(1) != "profile") { ?>
 		<div class="container clearfix">
 
 			<div id="oc-clients" class="owl-carousel image-carousel carousel-widget" data-margin="60" data-loop="true" data-nav="false" data-autoplay="5000" data-pagi="false" data-items-xs="2" data-items-sm="3" data-items-md="4" data-items-lg="5" data-items-xl="6">
@@ -308,6 +308,38 @@
 				position: 'start-end',
 				icon: 'error',
 				title: 'รหัสผ่านไม่ถูกต้อง',
+				showConfirmButton: true,
+			});
+		<?php endif; ?>
+		<?php if ($this->session->flashdata('checkEdit_profileId_card')) : ?>
+			Swal.fire({
+				position: 'start-end',
+				icon: 'error',
+				title: 'มีรหัสบัตรประชาชนนี้อยู่ในระบบแล้ว กรุณาใช้รหัสบัตรประชาชนใหม่!!',
+				showConfirmButton: true,
+			});
+		<?php endif; ?>
+		<?php if ($this->session->flashdata('checkEdit_profileEmail')) : ?>
+			Swal.fire({
+				position: 'start-end',
+				icon: 'error',
+				title: 'มีอีเมลนี้อยู่ในระบบแล้ว กรุณาใช้อีเมลใหม่!!',
+				showConfirmButton: true,
+			});
+		<?php endif; ?>
+		<?php if ($this->session->flashdata('edit_profileSuccess')) : ?>
+			Swal.fire({
+				position: 'start-end',
+				icon: 'success',
+				title: 'การแก้ไขโปรไฟล์สำเร็จ !!',
+				showConfirmButton: true,
+			});
+		<?php endif; ?>
+		<?php if ($this->session->flashdata('edit_profileFail')) : ?>
+			Swal.fire({
+				position: 'start-end',
+				icon: 'error',
+				title: 'การแก้ไขโปรไฟล์ล้มเหลว กรุณาลองใหม่อีกครั้ง!!',
 				showConfirmButton: true,
 			});
 		<?php endif; ?>

@@ -157,7 +157,9 @@
 							<?php } ?>
 
 							<?php if (!empty($user)) { ?>
-								<li>
+								<li class="<?php if ($this->uri->segment(1) == "profile") {
+												echo 'current';
+											} ?>">
 									<a href="#">
 										<div> | <i class="icon-user"></i><?= $user['first_name'] . ' ' . $user['last_name']; ?> <i class="icon-chevron-down1"></i></div>
 									</a>
@@ -166,6 +168,9 @@
 											<a href="profile">
 												<div>ข้อมูลส่วนตัว</div>
 											</a>
+
+										</li>
+										<li>
 											<a href="order-history">
 												<div>ประวัติรายการโพส</div>
 											</a>
@@ -192,7 +197,7 @@
 
 		</header><!-- #header end -->
 
-		<?php if ($this->uri->segment(1) != "contact" && $this->uri->segment(1) != "login") { ?>
+		<?php if ($this->uri->segment(1) != "contact" && $this->uri->segment(1) != "login"  && $this->uri->segment(1) != "profile") { ?>
 			<section id="slider" class="slider-element slider-parallax swiper_wrapper clearfix">
 
 				<div class="swiper-container swiper-parent">
