@@ -11,8 +11,15 @@
 
 	<div class="container clear-bottommargin clearfix">
 		<div class="row">
-			<?php foreach ($post as $post) { ?>
-				<div class="col-lg-3 col-md-6 bottommargin">
+			<?php 
+				$i = 0;
+				foreach ($post as $post) { 
+					if ($i == 9) {
+						break;
+					}
+					$i+= 1;
+			?>
+				<div class="col-lg-4 col-md-6 bottommargin">
 					<div class="ipost clearfix">
 						<div class="entry-image">
 							<a href="blog_detail?id=<?= base64_encode($post['id']); ?>"><img class="image_fade" src="uploads/post/<?= $post['file_name']; ?>" alt="Image"></a>
