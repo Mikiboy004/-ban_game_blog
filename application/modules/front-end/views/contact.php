@@ -9,7 +9,7 @@
 				<div id="contact-form-overlay" class="clearfix">
 
 					<div class="fancy-title title-dotted-border">
-						<h3>Send us an Email</h3>
+						<h3>ติดต่อเรา</h3>
 					</div>
 
 					<div class="form-widget">
@@ -18,58 +18,45 @@
 
 						<!-- Contact Form
 						============================================= -->
-						<form class="nobottommargin" id="template-contactform" name="template-contactform" action="include/form.php" method="post">
+						<form class="nobottommargin" id="template-contactform" onsubmit="contact_add();" action="" method="post">
 
 							<div class="col_half">
-								<label for="template-contactform-name">Name <small>*</small></label>
-								<input type="text" id="template-contactform-name" name="template-contactform-name" value="" class="sm-form-control required" />
+								<label for="template-contactform-name">ชื่อ <small>*</small></label>
+								<input type="text" id="template-contactform-name" name="first_name" value="" class="sm-form-control required" />
 							</div>
 
 							<div class="col_half col_last">
-								<label for="template-contactform-email">Email <small>*</small></label>
-								<input type="email" id="template-contactform-email" name="template-contactform-email" value="" class="required email sm-form-control" />
+								<label for="template-contactform-name">นามสกุล <small>*</small></label>
+								<input type="text" id="template-contactform-name" name="last_name" value="" class="sm-form-control required" />
 							</div>
 
-							<div class="clear"></div>
-
 							<div class="col_half">
-								<label for="template-contactform-phone">Phone</label>
-								<input type="text" id="template-contactform-phone" name="template-contactform-phone" value="" class="sm-form-control" />
+								<label for="template-contactform-email">อีเมล <small>*</small></label>
+								<input type="email" id="template-contactform-email" name="email" value="" class="required email sm-form-control" />
 							</div>
 
 							<div class="col_half col_last">
-								<label for="template-contactform-service">Services</label>
-								<select id="template-contactform-service" name="template-contactform-service" class="sm-form-control">
-									<option value="">-- Select One --</option>
-									<option value="Wordpress">Wordpress</option>
-									<option value="PHP / MySQL">PHP / MySQL</option>
-									<option value="HTML5 / CSS3">HTML5 / CSS3</option>
-									<option value="Graphic Design">Graphic Design</option>
-								</select>
+								<label for="template-contactform-phone">เบอร์โทรศัพท์ติดต่อ</label>
+								<input type="text" id="template-contactform-phone" name="tel" value="" class="required sm-form-control" />
 							</div>
 
 							<div class="clear"></div>
 
 							<div class="col_full">
-								<label for="template-contactform-subject">Subject <small>*</small></label>
+								<label for="template-contactform-subject">หัวข้อ <small>*</small></label>
 								<input type="text" id="template-contactform-subject" name="subject" value="" class="required sm-form-control" />
 							</div>
 
 							<div class="col_full">
-								<label for="template-contactform-message">Message <small>*</small></label>
-								<textarea class="required sm-form-control" id="template-contactform-message" name="template-contactform-message" rows="6" cols="30"></textarea>
+								<label for="template-contactform-message">ข้อความ <small>*</small></label>
+								<textarea class="required sm-form-control" id="template-contactform-message" name="message" rows="6" cols="30"></textarea>
 							</div>
 
 							<div class="col_full hidden">
 								<input type="text" id="template-contactform-botcheck" name="template-contactform-botcheck" value="" class="sm-form-control" />
 							</div>
 
-							<div class="col_full">
-
-								<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-								<div class="g-recaptcha" data-sitekey="6LfijgUTAAAAACPt-XfRbQszAKAJY0yZDjjhMUQT"></div>
-
-							</div>
+							
 
 							<div class="col_full">
 								<button class="button button-3d nomargin" type="submit" id="template-contactform-submit" name="template-contactform-submit" value="submit">Send Message</button>
@@ -123,3 +110,60 @@
 
 
 		</section><!-- Contact Form & Map Overlay Section End -->
+
+		<script>
+			function contact_add(){
+				event.preventDefault();
+
+				let first_name = $('#template-contactform').find('input[name="first_name"]').val();
+                let last_name = $('#template-contactform').find('input[name="last_name"]').val();
+                let email = $('#template-contactform').find('input[name="email"]').val();
+                let tel = $('#template-contactform').find('input[name="tel"]').val();
+				let subject = $('#template-contactform').find('input[name="subject"]').val();
+				let message = $('#template-contactform').find('textarea[name="message"]').val();
+
+				$.ajax({
+                        url: "contact_add",
+                        data:{
+                            first_name:first_name,
+                            last_name:last_name,
+                            email:email,
+                            tel:tel,
+							subject:subject,
+                            message:message,
+                        },
+                        method: "POST",
+                        success:function(getData){
+                            const result = JSON.parse(getData);
+
+							if (result.successfully == false) {
+								Swal.fire({
+                                    position: 'start-end',
+                                    icon: 'error',
+                                    title: 'ส่งข้อความล้มเหลว กรุณาลองใหม่อีกครั้ง!!',
+                                    showConfirmButton: true,
+                                })
+							}
+
+                            if (result.successfully == true) {
+                                Swal.fire({
+                                    position: 'start-end',
+                                    icon: 'success',
+                                    title: 'ส่งข้อความสำเร็จ ทางเราจะติดต่อกลับไปยังอีเมลหรือเบอร์โทรศัพท์ติดต่อที่ท่านกรอกมา',
+                                    showConfirmButton: true,
+                                }).then(
+                                    clear = () =>{
+                                        $('input[name="first_name"]').val("");
+                                        $('input[name="last_name"]').val("");
+                                        $('input[name="email"]').val("");
+										$('input[name="tel"]').val("");
+                                        $('input[name="subject"]').val("");
+                                        $('textarea[name="message"]').val("");
+                                    }
+                                );
+                            }
+                        }
+
+                    });
+			}
+		</script>

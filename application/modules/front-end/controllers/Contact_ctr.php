@@ -20,15 +20,26 @@ class Contact_ctr extends CI_Controller
     public function contact_add()
     {
         $data = array(
-            'name'          => $this->input->post('name'),
+            'first_name'    => $this->input->post('first_name'),
+            'last_name'     => $this->input->post('last_name'),
             'email'         => $this->input->post('email'),
-            'phone'         => $this->input->post('phone'),
+            'tel'           => $this->input->post('tel'),
+            'subject'       => $this->input->post('subject'),
             'message'       => $this->input->post('message'),
-            'create_times'  => date("Y-m-d H:i:s")
+            'created_at'    => date("Y-m-d H:i:s"),
+            'updated_at'    => date("Y-m-d H:i:s"),
         );
 
         $success = $this->db->insert('tbl_contact', $data);
 
-        echo $success ;
+        if ($success > 0) {
+            $result['successfully'] = true;
+            $result['message'] = 'send contact success';
+            echo json_encode($result);
+        }else{
+            $result['successfully'] = false;
+            $result['message'] = 'send contact error';
+            echo json_encode($result);
+        }
     }
 }
