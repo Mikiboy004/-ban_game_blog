@@ -37,7 +37,11 @@
                                         <a href="#" class="fright" style="margin-bottom:15px;">ลืมรหัสผ่าน</a>
                                         <button class="button button-3d button-black nomargin" id="login-form-submit" name="login-form-submit" style="display:block; width:100%;">เข้าสู่ระบบ</button>
                                         <div class="divider divider-center" style="color:#444;"><span class="position-relative" style="top: -2px">OR</span></div>
-                                        <a href="#" class="button button-large button-rounded btn-block si-colored si-facebook nott t400 ls0 center nomargin"><i class="icon-facebook-sign"></i> Log in with Facebook</a>
+                                        <?php if (!empty($authURL)) { ?>
+                                            <a href="<?php echo $authURL; ?>" class="button button-large button-rounded btn-block si-colored si-facebook nott t400 ls0 center nomargin"><i class="icon-facebook-sign"></i> Log in with Facebook</a>
+                                        <?php }else{?>
+
+                                        <?php }?>
                                     </div>
 
 
@@ -256,7 +260,7 @@
                         showConfirmButton: true,
                     }).then(
                         after_login = () => {
-                            window.location = window.location.origin + "/ban_game_blog/index";
+                            window.location = window.location.origin + "/index";
                         }
                     );
                 }

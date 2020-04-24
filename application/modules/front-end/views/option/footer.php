@@ -28,7 +28,7 @@
 
 						<div class="widget clearfix">
 
-							<img src="public/assets/front-end/images/logo_ban.png" alt="" class="footer-logo">
+							<img src="public/assets/front-end/images/logo_new_footer.png" alt="" class="footer-logo">
 
 						</div>
 
@@ -127,8 +127,7 @@
 							<h4>CONTACT</h4>
 
 							<ul>
-								<li><i class="icon-email"></i> cgmtv19@gmail.com</li>
-								<li><i class="icon-phone-sign"></i> 0968595549</li>
+								<li><i class="icon-phone-sign"></i> 096-8595549</li>
 							</ul>
 
 						</div>

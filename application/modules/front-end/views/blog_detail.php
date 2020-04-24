@@ -201,68 +201,8 @@
 
             </div><!-- .postcontent end -->
 
-            <!-- Sidebar
-					============================================= -->
-            <div class="sidebar nobottommargin col_last clearfix">
-                <div class="sidebar-widgets-wrap">
-
-                    <div class="widget widget-twitter-feed clearfix">
-
-                        <h4>Twitter Feed</h4>
-                        <ul class="iconlist twitter-feed" data-username="envato" data-count="2">
-                            <li></li>
-                        </ul>
-
-                        <a href="#" class="btn btn-secondary btn-sm fright">Follow Us on Twitter</a>
-
-                    </div>
-
-
-
-                    <div class="widget clearfix">
-
-                        <h4>Portfolio Carousel</h4>
-                        <div id="oc-portfolio-sidebar" class="owl-carousel carousel-widget" data-items="1" data-margin="10" data-loop="true" data-nav="false" data-autoplay="5000">
-
-                            <div class="oc-item">
-                                <div class="iportfolio">
-                                    <div class="portfolio-image">
-                                        <a href="#">
-                                            <img src="public/assets/front-end/images/portfolio/4/3.jpg" alt="Mac Sunglasses">
-                                        </a>
-                                        <div class="portfolio-overlay">
-                                            <a href="https://vimeo.com/89396394" class="center-icon" data-lightbox="iframe"><i class="icon-line-play"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="portfolio-desc center nobottompadding">
-                                        <h3><a href="portfolio-single-video.html">Mac Sunglasses</a></h3>
-                                        <span><a href="#">Graphics</a>, <a href="#">UI Elements</a></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="oc-item">
-                                <div class="iportfolio">
-                                    <div class="portfolio-image">
-                                        <a href="portfolio-single.html">
-                                            <img src="public/assets/front-end/images/portfolio/4/1.jpg" alt="Open Imagination">
-                                        </a>
-                                        <div class="portfolio-overlay">
-                                            <a href="public/assets/front-end/images/blog/full/1.jpg" class="center-icon" data-lightbox="image"><i class="icon-line-plus"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="portfolio-desc center nobottompadding">
-                                        <h3><a href="portfolio-single.html">Open Imagination</a></h3>
-                                        <span><a href="#">Media</a>, <a href="#">Icons</a></span>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-
-            </div><!-- .sidebar end -->
+            <!-- Sidebar============================================= -->
+          
 
         </div>
 

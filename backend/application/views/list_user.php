@@ -26,7 +26,7 @@
                             <h2 class="content-header-title float-left mb-0">User</h2>
                             <div class="breadcrumb-wrapper col-12">
                                 <ol class="breadcrumb">
-                                  
+
                                     <li class="breadcrumb-item active">User
                                     </li>
                                 </ol>
@@ -63,20 +63,28 @@
                                                         <th>No.</th>
                                                         <th>ชื่อผู้ใช้งาน</th>
                                                         <th>อีเมล</th>
-                                                        
+                                                        <th>Login ผ่าน Facebook</th>
                                                         <th>วันที่-เวลาที่เป็นสมาชิก</th>
                                                         <th>ข้อมูลสมาชิก</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
-                                                <?php $i = 1 ?>
-                                                <?php foreach ($user as $key => $data) { ?>
-                                                    
+                                                    <?php $i = 1 ?>
+                                                    <?php foreach ($user as $key => $data) { ?>
+
                                                         <tr>
                                                             <td><?php echo $i++ ?></td>
                                                             <td><?php echo $data['username']; ?></td>
                                                             <td><?php echo $data['email']; ?></td>
-                                                            
+                                                            <td>
+                                                                <?php if (isset($data['oauth_provider']) && isset($data['oauth_uid'])) {  ?>
+                                                                    <span style="display:none;">1</span>
+                                                                    <span class="badge badge-success" style="display:block;"><i class="fa fa-facebook-official" style="font-size:30px;"></i> <i class="fa fa-check" style="font-size:30px;"></i></span>
+                                                                <?php }else{  ?>
+                                                                    <span style="display:none;">2</span>
+                                                                    <span class="badge badge-danger" style="display:block;"><i class="fa fa-facebook-official" style="font-size:30px;"></i> <i class="fa fa-times" style="font-size:30px;"></i></span>
+                                                                <?php }  ?>
+                                                            </td>
                                                             <td><?php echo thaiDate($data['created_at']); ?></td>
                                                             <td>
                                                                 <button data-toggle="modal" data-target="#exampleModala<?php echo $data['id_user']; ?>" type="button" class="btn btn-primary">
@@ -99,11 +107,13 @@
                                                                                 <div class="col-xl-12 col-md-6 col-12 mb-1">
                                                                                     <div class="form-group">
                                                                                         <label for="helpInputTop">รูปโปรไฟล์</label>
-                                                                                        <div class="form-control" style="width:50%; height:auto; margin:auto;">
-                                                                                            <?php if (isset($data['file_name'])) { ?>
-                                                                                                <img src="../uploads/user/<?php echo $data['file_name']; ?>" style="max-width: 100%;">
-                                                                                            <?php }else{ ?>
+                                                                                        <div class="form-control" style="width:70%; height:auto; margin:auto; text-align:center;">
+                                                                                            <?php if (!isset($data['file_name'])) { ?>
                                                                                                 <img src="../public/assets/front-end/images/author/male-user.png" style="max-width: 100%;">
+                                                                                            <?php } elseif (isset($data['oauth_provider']) && isset($data['oauth_uid'])) { ?>
+                                                                                                <img src="<?php echo $data['file_name']; ?>" style="max-width: 100%;">
+                                                                                            <?php } else { ?>
+                                                                                                <img src="../uploads/user/<?php echo $data['file_name']; ?>" style="max-width: 100%;">
                                                                                             <?php } ?>
                                                                                         </div>
                                                                                     </div>
@@ -112,11 +122,11 @@
                                                                                 <div class="col-xl-12 col-md-6 col-12 mb-1">
                                                                                     <div class="form-group">
                                                                                         <label for="helpInputTop">ชื่อ-นามสกุล</label>
-                                                                                        <div class="form-control"><?php echo $data['first_name'].' '.$data['last_name']; ?></div>
+                                                                                        <div class="form-control"><?php echo $data['first_name'] . ' ' . $data['last_name']; ?></div>
                                                                                     </div>
                                                                                 </div>
 
-                                                                    
+
 
                                                                                 <div class="col-xl-12 col-md-6 col-12 mb-1">
                                                                                     <div class="form-group">
@@ -125,19 +135,20 @@
                                                                                     </div>
                                                                                 </div>
 
-                                                                               
 
-                                                                                <div class="col-xl-12 col-md-6 col-12 mb-1">
-                                                                                    <div class="form-group">
-                                                                                        <label for="helpInputTop">เบอร์โทรศัพท์ติดต่อ</label>
-                                                                                        <div class="form-control"><?php echo $data['tel']; ?></div>
+                                                                                <?php if (!isset($data['oauth_provider']) && !isset($data['oauth_uid'])) { ?>
+                                                                                    <div class="col-xl-12 col-md-6 col-12 mb-1">
+                                                                                        <div class="form-group">
+                                                                                            <label for="helpInputTop">เบอร์โทรศัพท์ติดต่อ</label>
+                                                                                            <div class="form-control"><?php echo $data['tel']; ?></div>
+                                                                                        </div>
                                                                                     </div>
-                                                                                </div>
+                                                                                <?php } ?>
 
                                                                                 <div class="modal-footer">
                                                                                     <div class="add-data-footer d-flex justify-content-around px-3 mt-2">
                                                                                         <div class="add-data-btn mr-1">
-                                                                                           
+
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
@@ -149,8 +160,8 @@
                                                         </tr>
 
 
-                                                    
-                                                <?php } ?>
+
+                                                    <?php } ?>
                                                 </tbody>
                                             </table>
                                         </div>

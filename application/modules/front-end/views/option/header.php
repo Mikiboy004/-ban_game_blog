@@ -32,10 +32,21 @@
 	============================================= -->
 	<title>Black-List TH | ตรวจสอบรายชื่อคนโกงได้ที่นี่</title>
 </head>
+<style>
+	.mobile-input {
+		width: 50%;
+	}
+
+	@media (max-width: 991.98px) {
+		.mobile-input {
+			width: 100%;
+		}
+	}
+</style>
 
 <body class="stretched">
 	<div id="wrapper" class="clearfix">
-		<?php $user = $this->db->get_where('tbl_user', ['username' => $this->session->userdata('username')])->row_array(); ?>
+		<?php $user = $this->db->get_where('tbl_user', ['username' => $this->session->userdata('username')])->row_array();?>
 		<?php
 		$month = array(
 			'01'  => 'มกราคม', '02'  => 'กุมภาพันธ์', '03'  => 'มีนาคม',
@@ -242,7 +253,7 @@
 						<div class="button button-full button-purple center tright header-stick bottommargin-lg">
 							<div class="container clearfix">
 
-								<div class="clearfix center divcenter" style="width:50%;">
+								<div class="clearfix center divcenter mobile-input">
 									<div class="subscribe-widget" data-loader="button">
 										<div class="widget-subscribe-form-result"></div>
 
