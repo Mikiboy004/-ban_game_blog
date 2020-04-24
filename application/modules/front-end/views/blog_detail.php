@@ -28,7 +28,7 @@
                         <ul class="entry-meta clearfix">
                             <li><i class="icon-calendar3"></i> <?= thaiDate($detail['date_post']); ?></li>
                             <li><a href="#"><i class="icon-user"></i> <?= $user['first_name'] . ' ' . $user['last_name']; ?></a></li>
-                            <li><a href="#"><i class="icon-comments"></i> 43 Comments</a></li>
+                            <li><a href="#"><i class="icon-comments"></i> <?php echo $comment_count['countAll'] ; ?> Comments</a></li>
                             <li><a href="#"><i class="icon-camera-retro"></i></a></li>
                         </ul><!-- .entry-meta end -->
 

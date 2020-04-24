@@ -28,7 +28,7 @@
 									<li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li>
 								</ul>
 								<div class="entry-content">
-									<p><?= substr($post['detail'], 0, 250); ?></p>
+									<p><?= mb_substr($post['detail'],0,100,'UTF-8');  ?></p>
 								</div>
 							</div>
 						</div>
