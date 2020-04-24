@@ -46,7 +46,7 @@
 
 <body class="stretched">
 	<div id="wrapper" class="clearfix">
-		<?php $user = $this->db->get_where('tbl_user', ['username' => $this->session->userdata('username')])->row_array(); ?>
+		<?php $user = $this->db->get_where('tbl_user', ['username' => $this->session->userdata('username')])->row_array();?>
 		<?php
 		$month = array(
 			'01'  => 'มกราคม', '02'  => 'กุมภาพันธ์', '03'  => 'มีนาคม',

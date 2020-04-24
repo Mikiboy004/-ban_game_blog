@@ -20,89 +20,99 @@
                                                 <div class="col_full text-center">
                                                     <?php if (!isset($userlist['file_name'])) { ?>
                                                         <img src="public/assets/front-end/images/author/male-user.png" id="blah" style="border-radius: 50%;width: 20%;">
+                                                    <?php } elseif (isset($userlist['oauth_provider']) && isset($userlist['oauth_uid'])) { ?>
+                                                        <img src="<?php echo $userlist['file_name'];  ?>" id="blah" style="border-radius: 50%;width: 20%;">
                                                     <?php } else { ?>
                                                         <img src="uploads/user/<?php echo $userlist['file_name'];  ?>" id="blah" style="border-radius: 50%;width: 20%;">
                                                     <?php } ?>
                                                 </div>
-                                                <input type="hidden" name="id_user" value="<?php echo $userlist['id_user']; ?>">
-                                                <div class="col_full">
-                                                    <label for="register-form-name">รูปโปรไฟล์: <span style="color:red;">*</span></label>
-                                                    <input type="file" id="imgInp" name="file_name" accept="image/gif, image/jpeg, image/png" class="form-control" />
-                                                </div>
 
+                                                <input type="hidden" name="id_user" value="<?php echo $userlist['id_user']; ?>">
+
+                                                <?php if (!isset($userlist['oauth_provider']) && !isset($userlist['oauth_uid'])) { ?>
+                                                    <div class="col_full">
+                                                        <label for="register-form-name">รูปโปรไฟล์: <span style="color:red;">*</span></label>
+                                                        <input type="file" id="imgInp" name="file_name" accept="image/gif, image/jpeg, image/png" class="form-control" />
+                                                    </div>
+                                                <?php } ?>
                                                 <div class="row">
                                                     <div class="col_full col-md-6 col-sm-12">
                                                         <label for="register-form-name">ชื่อ: <span style="color:red;">*</span></label>
-                                                        <input type="text" id="register-form-name" name="first_name" value="<?= $userlist['first_name']; ?>" class="form-control" required />
+                                                        <input type="text" id="register-form-name" name="first_name" value="<?= $userlist['first_name']; ?>" class="form-control" required <?php  if (isset($userlist['oauth_provider']) && isset($userlist['oauth_uid'])) { echo 'disabled'; } ?>/>
                                                     </div>
 
                                                     <div class="col_full col-md-6 col-sm-12">
                                                         <label for="register-form-name">นามสกุล: <span style="color:red;">*</span></label>
-                                                        <input type="text" id="register-form-name" name="last_name" value="<?= $userlist['last_name']; ?>" class="form-control" required />
+                                                        <input type="text" id="register-form-name" name="last_name" value="<?= $userlist['last_name']; ?>" class="form-control" required <?php  if (isset($userlist['oauth_provider']) && isset($userlist['oauth_uid'])) { echo 'disabled'; } ?>/>
                                                     </div>
                                                 </div>
-                                                
-                                                
+
+
 
 
 
                                                 <div class="col_full">
                                                     <label for="register-form-email">อีเมล: <span style="color:red;">*</span></label>
-                                                    <input type="text" id="register-form-email" name="email" value="<?= $userlist['email']; ?>" class="form-control" required />
+                                                    <input type="text" id="register-form-email" name="email" value="<?= $userlist['email']; ?>" class="form-control" required <?php  if (isset($userlist['oauth_provider']) && isset($userlist['oauth_uid'])) { echo 'disabled'; } ?>/>
                                                 </div>
-                                                <div class="row">
-                                                    
-
-                                                    <div class="col_full col-md-6 col-sm-12">
-                                                        <label for="register-form-phone">เบอร์โทรศัพท์ติดต่อ: <span style="color:red;">*</span></label>
-                                                        <input type="text" id="register-form-phone" name="tel" value="<?= $userlist['tel']; ?>" class="form-control" required />
+                                                <?php if (!isset($userlist['oauth_provider']) && !isset($userlist['oauth_uid'])) { ?>
+                                                    <div class="row">
+                                                        <div class="col_full col-md-6 col-sm-12">
+                                                            <label for="register-form-phone">เบอร์โทรศัพท์ติดต่อ: <span style="color:red;">*</span></label>
+                                                            <input type="text" id="register-form-phone" name="tel" value="<?= $userlist['tel']; ?>" class="form-control" required />
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                <?php } ?>
 
                                                 <div class="col_full nobottommargin">
-                                                    <button class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit" value="register">อัพเดทข้อมูล</button>
-                                                    <button class="button button-3d button-primary nomargin" type="button" data-toggle="modal" data-target=".bs-example-modal-lg">เปลี่ยนรหัสผ่าน</button>
+                                                    <?php if (!isset($userlist['oauth_provider']) && !isset($userlist['oauth_uid'])) { ?>
+                                                        <button class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit" value="register">อัพเดทข้อมูล</button>
+
+                                                        <button class="button button-3d button-primary nomargin" type="button" data-toggle="modal" data-target=".bs-example-modal-lg">เปลี่ยนรหัสผ่าน</button>
+                                                    <?php } ?>
                                                 </div>
 
                                             </form>
-                                            <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-                                                <div class="modal-dialog modal-lg">
-                                                    <div class="modal-body">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h4 class="modal-title" id="myModalLabel">เปลี่ยนรหัสผ่าน</h4>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <form id="register-form" class="nobottommargin" action="edit_password" method="post" enctype="multipart/form-data">
+                                            <?php if (!isset($userlist['oauth_provider']) && !isset($userlist['oauth_uid'])) { ?>
+                                                <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg">
+                                                        <div class="modal-body">
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title" id="myModalLabel">เปลี่ยนรหัสผ่าน</h4>
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <form id="register-form" class="nobottommargin" action="edit_password" method="post" enctype="multipart/form-data">
 
-                                                                    <input type="hidden" name="id_user" value="<?php echo $userlist['id_user']; ?>">
+                                                                        <input type="hidden" name="id_user" value="<?php echo $userlist['id_user']; ?>">
 
-                                                                    <div class="col_full">
-                                                                        <label for="register-form-email">รหัสผ่านเก่า: <span style="color:red;">*</span></label>
-                                                                        <input type="password" id="register-form-email" name="old_password" value="" class="form-control" required />
-                                                                    </div>
-                                                                    <div class="col_full">
-                                                                        <label for="register-form-email">รหัสผ่านใหม่: <span style="color:red;">*</span></label>
-                                                                        <input type="password" id="register-form-email" name="new_password" value="" class="form-control" required />
-                                                                    </div>
-                                                                    <div class="col_full">
-                                                                        <label for="register-form-email">ยืนยันรหัสผ่านใหม่: <span style="color:red;">*</span></label>
-                                                                        <input type="password" id="register-form-email" name="confirm_new_password" value="" class="form-control" required />
-                                                                    </div>
+                                                                        <div class="col_full">
+                                                                            <label for="register-form-email">รหัสผ่านเก่า: <span style="color:red;">*</span></label>
+                                                                            <input type="password" id="register-form-email" name="old_password" value="" class="form-control" required />
+                                                                        </div>
+                                                                        <div class="col_full">
+                                                                            <label for="register-form-email">รหัสผ่านใหม่: <span style="color:red;">*</span></label>
+                                                                            <input type="password" id="register-form-email" name="new_password" value="" class="form-control" required />
+                                                                        </div>
+                                                                        <div class="col_full">
+                                                                            <label for="register-form-email">ยืนยันรหัสผ่านใหม่: <span style="color:red;">*</span></label>
+                                                                            <input type="password" id="register-form-email" name="confirm_new_password" value="" class="form-control" required />
+                                                                        </div>
 
 
 
-                                                                    <div class="col_full nobottommargin">
-                                                                        <button class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit" value="register">อัพเดทข้อมูล</button>
-                                                                    </div>
+                                                                        <div class="col_full nobottommargin">
+                                                                            <button class="button button-3d button-black nomargin" type="submit" id="register-form-submit" name="register-form-submit" value="register">อัพเดทข้อมูล</button>
+                                                                        </div>
 
-                                                                </form>
+                                                                    </form>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            <?php } ?>
                                         </div>
                                     </div>
                                     <div class="col-lg-2 col-xd-2"></div>
