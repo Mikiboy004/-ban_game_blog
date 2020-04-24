@@ -19,6 +19,11 @@
 					}
 					$i+= 1;
 			?>
+				<?PHP
+				$this->db->from('tbl_comment');
+				$this->db->where('post_id', $post['id']);
+				$countall = $this->db->count_all_results(); 
+				 ?>
 				<div class="col-lg-4 col-md-6 bottommargin">
 					<div class="ipost clearfix">
 						<div class="entry-image">
@@ -32,7 +37,7 @@
 						</div>
 						<ul class="entry-meta clearfix">
 							<li><i class="icon-calendar3"></i> <?= thaiDate($post['date_post']); ?></li>
-							<li><a href="blog-single.html#comments"><i class="icon-comments"></i> 53</a></li>
+							<li><a href="blog-single.html#comments"><i class="icon-comments"></i> <?=  $countall ; ?></a></li>
 						</ul>
 						<div class="entry-content">
 							<p><?= mb_substr($post['detail'],0,100,'UTF-8'); ?></p>
