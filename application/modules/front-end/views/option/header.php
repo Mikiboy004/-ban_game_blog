@@ -132,7 +132,7 @@
 									</a>
 								</li>
 							<?php } ?>
-							<li class="<?php if ($this->uri->segment(1) == "blacklist") {
+							<li class="<?php if ($this->uri->segment(1) == "blacklist" || $this->uri->segment(1) == "search_blacklist") {
 											echo 'current';
 										} ?>">
 								<a href="blacklist">
@@ -236,32 +236,32 @@
 			<!-- Content
 		============================================= -->
 			<section id="content">
+				<form id="widget-subscribe-form" action="search_blacklist" method="post" class="nobottommargin h_main" data-animate="fadeInUp" style="padding:0px;border-radius: 20px 20px 20px 20px;margin:auto;">
+					<div class="content-wrap" style="padding:80px 0 0;">
 
-				<div class="content-wrap" style="padding:80px 0 0;">
+						<div class="button button-full button-purple center tright header-stick bottommargin-lg">
+							<div class="container clearfix">
 
-					<div class="button button-full button-purple center tright header-stick bottommargin-lg">
-						<div class="container clearfix">
+								<div class="clearfix center divcenter" style="width:50%;">
+									<div class="subscribe-widget" data-loader="button">
+										<div class="widget-subscribe-form-result"></div>
 
-							<div class="clearfix center divcenter" style="width:50%;">
-								<div class="subscribe-widget" data-loader="button">
-									<div class="widget-subscribe-form-result"></div>
-									<form id="widget-subscribe-form" action="include/subscribe.php" method="post" class="nobottommargin h_main" data-animate="fadeInUp" style="padding:0px;border-radius: 20px 20px 20px 20px;margin:auto;">
 
 										<div class="input-group divcenter travel-date-group">
-											<input type="text" value="" class="form-control" placeholder="ค้นหารายชื่อคนโกง" style="border: 0; box-shadow: none; overflow: hidden;margin:auto;border-radius: 20px 20px 20px 20px;">
+											<input type="text" value="" class="form-control" name="search_blacklist" placeholder="ค้นหารายชื่อคนโกง" style="border: 0; box-shadow: none; overflow: hidden;margin:auto;border-radius: 20px 20px 20px 20px;">
 											<div class="input-group-append" style="margin-left: -30px;">
-												<button href="#" class="button t400" type="submit" style="border-radius: 0px 20px 20px 0px; z-index:100;">ค้นหา</button>
+												<button class="button t400" type="submit" style="border-radius: 0px 20px 20px 0px; z-index:100;">ค้นหา</button>
 											</div>
 										</div>
-									</form>
+
+									</div>
 								</div>
+
 							</div>
-
 						</div>
+
 					</div>
-
-				</div>
-
+				</form>
 			</section><!-- #content end -->
 		<?php } ?>
 

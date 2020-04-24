@@ -17,4 +17,15 @@ class Blacklist_ctr extends CI_Controller
       $this->load->view('option/footer');
   }
 
+  public function search_blacklist()
+  {
+      $search_blacklist = $this->input->post('search_blacklist');
+      $this->db->like('cheat' , $search_blacklist);
+      $this->db->where('status' , 1);
+      $data['post'] = $this->db->order_by('id','DESC')->get('tbl_post')->result_array();
+      $this->load->view('option/header');
+      $this->load->view('search_blacklist',$data);
+      $this->load->view('option/footer');
+  }
+
 }

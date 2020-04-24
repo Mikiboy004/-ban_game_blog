@@ -70,35 +70,9 @@
 
 			<div class="line"></div>
 
-			<!-- Contact Info
-					============================================= -->
-			<div class="col_one_third nobottommargin">
+			
 
-				<address>
-					22 Soi Bang Kadi 13<br>
-					Rama 2<br>
-					Samae Dam Subdistrict, Bang Khun Thian District Bangkok 10150
-				</address>
-				
-
-			</div><!-- Contact Info End -->
-
-			<!-- Testimonails
-					============================================= -->
-			<div class="col_two_third col_last nobottommargin">
-				<abbr title="Phone Number"><strong>Phone:</strong></abbr> 096-8595549<br>
-				<abbr title="Email Address"><strong>Email:</strong></abbr> cgmtv19@gmail.com
-				<!-- <div class="fslider customjs testimonial twitter-scroll twitter-feed" data-username="envato" data-count="4" data-animation="slide" data-arrows="false">
-					<i class="i-plain color icon-twitter nobottommargin" style="margin-right: 15px;"></i>
-					<div class="flexslider" style="width: auto;">
-						<div class="slider-wrap">
-							<div class="slide"></div>
-						</div>
-					</div>
-				</div> -->
-
-			</div>
-			<!-- Testimonials End -->
+			
 
 		</div><!-- Contact Form Overlay End -->
 
