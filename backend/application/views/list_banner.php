@@ -73,7 +73,7 @@
                                                         <tr>
                                                             <td><?php echo $i++ ?></td>
                                                             <td><img src="../uploads/banner/<?php echo $banner['file_name'] ?>" alt="" style="width:200px"></td>
-                                                            <td></td>
+                                                            <td><?php echo $banner['link']; ?></td>
                                                             <td><?php echo thaiDate($banner['created_at']); ?></td>
                                                             <td>
                                                                 <button data-toggle="modal" data-target="#exampleModala<?php echo $banner['id']; ?>" type="button" class="btn btn-warning"><i class="feather icon-edit" style="font-size: 25px;"></i>แก้ไข</button>
@@ -99,7 +99,7 @@
                                                                                     <div class="col-xl-12 col-md-6 col-12 mb-1" id="search_image">
                                                                                         <div class="form-group">
                                                                                             <label for="helpInputTop">ลิงค์</label>
-                                                                                            <input type="text" class="form-control" name="link" placeholder="Enter Link" required>
+                                                                                            <input type="text" class="form-control" name="link" placeholder="Enter Link" value="<?php echo $banner['link']; ?>" required>
                                                                                         </div>
                                                                                         <div class="form-group">
                                                                                             <label for="helpInputTop">File name</label>

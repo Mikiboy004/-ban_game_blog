@@ -99,6 +99,18 @@ class Banner_controller extends CI_Controller
                 $resultsedit = $this->db->update('tbl_banner', $data);
               
             }
+        }else{
+            $data = array(
+
+
+                'link'           => $this->input->post('link'),
+                'updated_at'     => date('Y-m-d H:i:s')
+              
+
+            );
+            
+            $this->db->where('id', $id);
+            $resultsedit = $this->db->update('tbl_banner', $data);
         } 
         
         if ($resultsedit > 0) {

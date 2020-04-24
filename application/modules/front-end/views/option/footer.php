@@ -5,7 +5,7 @@
 				<?php
 				$banner = $this->db->get('tbl_banner')->result_array();
 				foreach ($banner as $bannerDetail) { ?>
-					<div class="oc-item"><a href="#"><img src="uploads/banner/<?php echo $bannerDetail['file_name']; ?>" alt="Clients"></a></div>
+					<div class="oc-item"><a href="<?php echo $bannerDetail['link']; ?>" target="_blank"><img src="uploads/banner/<?php echo $bannerDetail['file_name']; ?>" alt="Clients"></a></div>
 				<?php } ?>
 			</div>
 
