@@ -134,4 +134,31 @@ class Blog_ctr extends CI_Controller
             echo "</script>";
         }
     }
+
+    function upload_image_textarea()
+    {
+        if (isset($_FILES["image"]["name"])) {
+            $config['upload_path'] = './uploads/textarea';
+            $config['allowed_types'] = 'jpg|jpeg|png|gif';
+            $this->upload->initialize($config);
+            if (!$this->upload->do_upload('image')) {
+                $this->upload->display_errors();
+                return FALSE;
+            } else {
+                $data = $this->upload->data();
+                //Compress Image
+                $config['image_library'] = 'gd2';
+                $config['source_image'] = './uploads/textarea/' . $data['file_name'];
+                $config['create_thumb'] = FALSE;
+                $config['maintain_ratio'] = TRUE;
+                $config['quality'] = '60%';
+                $config['width'] = 800;
+                $config['height'] = 800;
+                $config['new_image'] = './uploads/textarea/' . $data['file_name'];
+                $this->load->library('image_lib', $config);
+                $this->image_lib->resize();
+                echo base_url() . 'uploads/textarea/' . $data['file_name'];
+            }
+        }
+    }
 }

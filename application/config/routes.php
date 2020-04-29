@@ -17,6 +17,7 @@ $route['blog_detail']       = 'front-end/Blog_ctr/blog_detail';
 $route['blog_post']         = 'front-end/Blog_ctr/blog_post';
 $route['blog_post_success'] = 'front-end/Blog_ctr/blog_post_add';
 $route['comment']           = 'front-end/Blog_ctr/comment';
+$route['upload_image_textarea']           = 'front-end/Blog_ctr/upload_image_textarea';
 
 $route['contact']           = 'front-end/Contact_ctr/index';
 $route['contact_add']       = 'front-end/Contact_ctr/contact_add';

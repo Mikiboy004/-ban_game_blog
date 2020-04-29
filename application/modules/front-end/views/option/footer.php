@@ -181,6 +181,7 @@
 	<script src="public/assets/front-end/js/jquery.js"></script>
 	<script src="public/assets/front-end/js/plugins.js"></script>
 	<!-- Range Slider Plugin -->
+
 	<script src="public/assets/front-end/js/components/rangeslider.min.js"></script>
 	<script src="public/assets/front-end/sweetalert2.js"></script>
 
@@ -199,20 +200,45 @@
 	<script src="public/assets/front-end/js/components/timepicker.js"></script>
 	<!-- Include Date Range Picker -->
 	<script src="public/assets/front-end/js/components/daterangepicker.js"></script>
+	<!--Summernote js-->
+	<link href="public/assets/front-end/summernote/summernote-bs4.css" rel="stylesheet" />
+	<script src="public/assets/front-end/summernote/summernote-bs4.min.js"></script>
 
-	<script src="public/assets/front-end/ckeditor/ckeditor.js"></script>
+	
 	<script>
-		// Replace the <textarea id="editor1"> with a CKEditor
-		// instance, using default configuration.
-		CKEDITOR.replace('editor1', {
-			height: 300
+		jQuery(document).ready(function() {
+			$('#elm1').summernote({
+				height: 300, // set editor height
+				callbacks: {
+					onImageUpload: function(image) {
+						uploadImage(image[0]);
+					},
+					onMediaDelete: function(target) {
+						deleteImage(target[0].src);
+					}
+				},
+
+			});
+
+			function uploadImage(image) {
+				var data = new FormData();
+				data.append("image", image);
+				$.ajax({
+					url: 'upload_image_textarea',
+					cache: false,
+					contentType: false,
+					processData: false,
+					data: data,
+					type: "POST",
+					success: function(url) {
+						$('#elm1').summernote("insertImage", url);
+					},
+					error: function(data) {
+						console.log(data);
+					}
+				});
+			}
 		});
-	</script>
-
-	<script>
-		// Replace the <textarea id="editor1"> with a CKEditor
-		// instance, using default configuration.
-		CKEDITOR.replace('editor2');
 	</script>
 
 	<script>

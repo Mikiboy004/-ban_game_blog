@@ -28,6 +28,7 @@
 	<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap" rel="stylesheet">
 	<!-- Bootstrap File Upload CSS -->
 	<link rel="stylesheet" href="public/assets/front-end/css/components/bs-filestyle.css" type="text/css" />
+	
 	<!-- Document Title
 	============================================= -->
 	<title>Black-List TH | ตรวจสอบรายชื่อคนโกงได้ที่นี่</title>

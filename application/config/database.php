@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	'username' => 'blacklis_user',
+	'hostname' => '163.44.198.63',
+	'username' => 'cp486987_user',
 	'password' => 'P@Ssw0rd',
-	'database' => 'blacklis_ban',
+	'database' => 'cp486987_blog_game',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,

@@ -43,7 +43,7 @@
                         <div class="w-100"></div>
                         <div class="col-12 form-group">
                             <label>รายละเอียด:</label>
-                            <textarea name="detail" id="editor1" required></textarea>
+                            <textarea name="detail" id="elm1" required></textarea>
                         </div>
 
                         <div class="col-12 hidden">
